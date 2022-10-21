@@ -1,0 +1,12 @@
+C:\Users\Padidar\Desktop\Private\uni\Coding\Music playlist\project-2-Hsoonaik\DS-proj2-Music-player\DS-proj2-Music-player\bin\Debug\DS-proj2-Music-player.exe.config
+C:\Users\Padidar\Desktop\Private\uni\Coding\Music playlist\project-2-Hsoonaik\DS-proj2-Music-player\DS-proj2-Music-player\bin\Debug\DS-proj2-Music-player.exe
+C:\Users\Padidar\Desktop\Private\uni\Coding\Music playlist\project-2-Hsoonaik\DS-proj2-Music-player\DS-proj2-Music-player\bin\Debug\DS-proj2-Music-player.pdb
+C:\Users\Padidar\Desktop\Private\uni\Coding\Music playlist\project-2-Hsoonaik\DS-proj2-Music-player\DS-proj2-Music-player\obj\Debug\DS-proj2-Music-player.csproj.AssemblyReference.cache
+C:\Users\Padidar\Desktop\Private\uni\Coding\Music playlist\project-2-Hsoonaik\DS-proj2-Music-player\DS-proj2-Music-player\obj\Debug\DS-proj2-Music-player.csproj.SuggestedBindingRedirects.cache
+C:\Users\Padidar\Desktop\Private\uni\Coding\Music playlist\project-2-Hsoonaik\DS-proj2-Music-player\DS-proj2-Music-player\obj\Debug\DS_proj2_Music_player.Properties.Resources.resources
+C:\Users\Padidar\Desktop\Private\uni\Coding\Music playlist\project-2-Hsoonaik\DS-proj2-Music-player\DS-proj2-Music-player\obj\Debug\DS_proj2_Music_player.SplashForm.resources
+C:\Users\Padidar\Desktop\Private\uni\Coding\Music playlist\project-2-Hsoonaik\DS-proj2-Music-player\DS-proj2-Music-player\obj\Debug\DS-proj2-Music-player.csproj.GenerateResource.cache
+C:\Users\Padidar\Desktop\Private\uni\Coding\Music playlist\project-2-Hsoonaik\DS-proj2-Music-player\DS-proj2-Music-player\obj\Debug\DS-proj2-Music-player.csproj.CoreCompileInputs.cache
+C:\Users\Padidar\Desktop\Private\uni\Coding\Music playlist\project-2-Hsoonaik\DS-proj2-Music-player\DS-proj2-Music-player\obj\Debug\DS-proj2-Music-player.exe
+C:\Users\Padidar\Desktop\Private\uni\Coding\Music playlist\project-2-Hsoonaik\DS-proj2-Music-player\DS-proj2-Music-player\obj\Debug\DS-proj2-Music-player.pdb
+C:\Users\Padidar\Desktop\Private\uni\Coding\Music playlist\project-2-Hsoonaik\DS-proj2-Music-player\DS-proj2-Music-player\obj\Debug\DS_proj2_Music_player.Form1.resources
