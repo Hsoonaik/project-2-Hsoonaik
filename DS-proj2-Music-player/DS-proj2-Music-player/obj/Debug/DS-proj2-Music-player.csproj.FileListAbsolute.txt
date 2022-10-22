@@ -9,4 +9,8 @@ C:\Users\Padidar\Desktop\Private\uni\Coding\Music playlist\project-2-Hsoonaik\DS
 C:\Users\Padidar\Desktop\Private\uni\Coding\Music playlist\project-2-Hsoonaik\DS-proj2-Music-player\DS-proj2-Music-player\obj\Debug\DS-proj2-Music-player.csproj.CoreCompileInputs.cache
 C:\Users\Padidar\Desktop\Private\uni\Coding\Music playlist\project-2-Hsoonaik\DS-proj2-Music-player\DS-proj2-Music-player\obj\Debug\DS-proj2-Music-player.exe
 C:\Users\Padidar\Desktop\Private\uni\Coding\Music playlist\project-2-Hsoonaik\DS-proj2-Music-player\DS-proj2-Music-player\obj\Debug\DS-proj2-Music-player.pdb
-C:\Users\Padidar\Desktop\Private\uni\Coding\Music playlist\project-2-Hsoonaik\DS-proj2-Music-player\DS-proj2-Music-player\obj\Debug\DS_proj2_Music_player.Form1.resources
+C:\Users\Padidar\Desktop\Private\uni\Coding\Music playlist\project-2-Hsoonaik\DS-proj2-Music-player\DS-proj2-Music-player\bin\Debug\DevComponents.DotNetBar.Charts.dll
+C:\Users\Padidar\Desktop\Private\uni\Coding\Music playlist\project-2-Hsoonaik\DS-proj2-Music-player\DS-proj2-Music-player\bin\Debug\DevComponents.DotNetBar2.dll
+C:\Users\Padidar\Desktop\Private\uni\Coding\Music playlist\project-2-Hsoonaik\DS-proj2-Music-player\DS-proj2-Music-player\bin\Debug\DevComponents.DotNetBar2.xml
+C:\Users\Padidar\Desktop\Private\uni\Coding\Music playlist\project-2-Hsoonaik\DS-proj2-Music-player\DS-proj2-Music-player\obj\Debug\DS-proj2-Music-player.csproj.CopyComplete
+C:\Users\Padidar\Desktop\Private\uni\Coding\Music playlist\project-2-Hsoonaik\DS-proj2-Music-player\DS-proj2-Music-player\obj\Debug\DS_proj2_Music_player.MainForm.resources
