@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Configuration;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -73,7 +74,9 @@ namespace DS_proj2_Music_player
       b3.Top = liked_butt.Top;
       b4.Top = merge_butt.Top;
 
+      
 
+      this.IsMdiContainer = true;
 
       //X_butt.Cursor = Cursors.Hand;
       // size is 850,550
@@ -84,7 +87,8 @@ namespace DS_proj2_Music_player
       SplashForm f = new SplashForm();
       f.ShowDialog();
 
-      b_click(1);
+      b_click(1); // PlayList
+
     }
 
     #region menu_butts
@@ -160,5 +164,12 @@ namespace DS_proj2_Music_player
         b4.Hide();
     }
     #endregion
+
+    private void pictureBox1_Click(object sender, EventArgs e)
+    {
+      Console.Write("\a");
+      MessageF info_msg = new MessageF("Made by Kinoosh Vadaei\nDS UI Proj", 0);
+      info_msg.Show();
+    }
   }
 }
