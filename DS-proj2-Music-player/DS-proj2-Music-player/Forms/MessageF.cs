@@ -12,7 +12,7 @@ namespace DS_proj2_Music_player
 {
   public partial class MessageF : Form
   {
-    Boolean Ok, yes, No; // for buttons!!!
+    public Boolean Ok, yes, No; // for buttons!!!
 
     /// <summary>
     /// 

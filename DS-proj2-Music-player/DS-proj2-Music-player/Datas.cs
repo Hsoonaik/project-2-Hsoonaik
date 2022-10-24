@@ -8,8 +8,11 @@ namespace DS_proj2_Music_player
 {
   internal class Datas
   {
-    List<PlayList> PList = new List<PlayList>();
+    public LinkedList<PlayList> PList= new LinkedList<PlayList>();
 
-
+    public void add_new_play_list(PlayList P)
+    {
+      PList.push_front(P);
+    }
   }
 }

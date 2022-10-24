@@ -33,9 +33,9 @@ namespace DS_proj2_Music_player
             this.MsgTxt = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.YesBtn = new System.Windows.Forms.Button();
             this.NoBtn = new System.Windows.Forms.Button();
             this.OkBtn = new System.Windows.Forms.Button();
-            this.YesBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -70,7 +70,7 @@ namespace DS_proj2_Music_player
             this.MsgTxt.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.MsgTxt.AutoSize = true;
             this.MsgTxt.Font = new System.Drawing.Font("Tahoma", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MsgTxt.ForeColor = System.Drawing.Color.White;
+            this.MsgTxt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(32)))), ((int)(((byte)(50)))));
             this.MsgTxt.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.MsgTxt.Location = new System.Drawing.Point(50, 38);
             this.MsgTxt.Name = "MsgTxt";
@@ -82,6 +82,7 @@ namespace DS_proj2_Music_player
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(171)))), ((int)(((byte)(171)))));
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -176,6 +177,26 @@ namespace DS_proj2_Music_player
             this.panel2.Size = new System.Drawing.Size(444, 66);
             this.panel2.TabIndex = 2;
             // 
+            // YesBtn
+            // 
+            this.YesBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.YesBtn.AutoSize = true;
+            this.YesBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(76)))), ((int)(((byte)(41)))));
+            this.YesBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.YesBtn.FlatAppearance.BorderSize = 0;
+            this.YesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.YesBtn.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.YesBtn.ForeColor = System.Drawing.Color.White;
+            this.YesBtn.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.YesBtn.Location = new System.Drawing.Point(95, 12);
+            this.YesBtn.Name = "YesBtn";
+            this.YesBtn.Size = new System.Drawing.Size(90, 38);
+            this.YesBtn.TabIndex = 7;
+            this.YesBtn.Text = "YES!";
+            this.YesBtn.UseVisualStyleBackColor = false;
+            this.YesBtn.Visible = false;
+            this.YesBtn.Click += new System.EventHandler(this.YesBtn_Click);
+            // 
             // NoBtn
             // 
             this.NoBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -186,7 +207,7 @@ namespace DS_proj2_Music_player
             this.NoBtn.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NoBtn.ForeColor = System.Drawing.Color.White;
             this.NoBtn.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.NoBtn.Location = new System.Drawing.Point(270, 12);
+            this.NoBtn.Location = new System.Drawing.Point(265, 12);
             this.NoBtn.Name = "NoBtn";
             this.NoBtn.Size = new System.Drawing.Size(90, 38);
             this.NoBtn.TabIndex = 6;
@@ -214,26 +235,6 @@ namespace DS_proj2_Music_player
             this.OkBtn.Text = "OK!";
             this.OkBtn.UseVisualStyleBackColor = false;
             this.OkBtn.Click += new System.EventHandler(this.OkBtn_Click);
-            // 
-            // YesBtn
-            // 
-            this.YesBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.YesBtn.AutoSize = true;
-            this.YesBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(76)))), ((int)(((byte)(41)))));
-            this.YesBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.YesBtn.FlatAppearance.BorderSize = 0;
-            this.YesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.YesBtn.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.YesBtn.ForeColor = System.Drawing.Color.White;
-            this.YesBtn.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.YesBtn.Location = new System.Drawing.Point(90, 12);
-            this.YesBtn.Name = "YesBtn";
-            this.YesBtn.Size = new System.Drawing.Size(90, 38);
-            this.YesBtn.TabIndex = 7;
-            this.YesBtn.Text = "YES!";
-            this.YesBtn.UseVisualStyleBackColor = false;
-            this.YesBtn.Visible = false;
-            this.YesBtn.Click += new System.EventHandler(this.YesBtn_Click);
             // 
             // MessageF
             // 

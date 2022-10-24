@@ -12,6 +12,10 @@ namespace DS_proj2_Music_player
     public Node<T> tail;
     int size = 0;
 
+    /// <summary>
+    /// add first
+    /// </summary>
+    /// <param name="data">Data</param>
     public void push_front(T data)
     {
       head = new Node<T>(data, head);

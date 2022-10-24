@@ -1,8 +1,11 @@
+using DS_proj2_Music_player.Forms;
+using LumenWorks.Framework.IO.Csv;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net.Configuration;
 using System.Text;
@@ -15,7 +18,10 @@ namespace DS_proj2_Music_player
   
     public partial class MainForm : Form
     {
+    
     int b = 0;
+    Datas Datas = new Datas(); // for playlists    
+
 
     void b_click(int tmp)
     {
@@ -55,10 +61,16 @@ namespace DS_proj2_Music_player
       }
     }
 
+    
+
+    #region About Form
     public MainForm()
-        {
-            InitializeComponent();
-      this.ControlBox = false;
+    {
+
+      InitializeComponent();
+      Controls.OfType<MdiClient>().FirstOrDefault().BackColor = Color.FromArgb(8, 32, 50); // to set color that changed by mdi
+
+      #region buuts
       this.FormBorderStyle = FormBorderStyle.None;
       add_butt.Top = plylst_butt.Bottom;
       liked_butt.Top = add_butt.Bottom;
@@ -69,24 +81,47 @@ namespace DS_proj2_Music_player
       b3.Height = liked_butt.Height;
       b4.Height = merge_butt.Height;
 
+
       b1.Top = plylst_butt.Top;
       b2.Top = add_butt.Top;
       b3.Top = liked_butt.Top;
       b4.Top = merge_butt.Top;
+      #endregion
 
-      
+      #region CsvReading
 
-      this.IsMdiContainer = true;
+      var csvTable = new DataTable(); // for reading csv
+
+      using (var csvReader = new CsvReader(new FileStream("musics.csv", FileMode.Open), true, Encoding.UTF8))
+      {
+        csvTable.Load(csvReader);
+      }
+
+      foreach (DataRow row in csvTable.Rows)
+      {
+        MessageBox.Show(row[0].ToString());
+        MessageBox.Show(row[1].ToString());
+
+      }
+
+
+      #endregion
+
+
+
+
+
 
       //X_butt.Cursor = Cursors.Hand;
       // size is 850,550
-        }
+    }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-      SplashForm f = new SplashForm();
-      f.ShowDialog();
-
+    private void Form1_Load(object sender, EventArgs e)
+    {
+      SplashForm F = new SplashForm();
+      this.Hide();
+      //F.ShowDialog();
+      this.Show();
       b_click(1); // PlayList
 
     }
@@ -96,11 +131,27 @@ namespace DS_proj2_Music_player
     private void plylst_butt_Click(object sender, EventArgs e)
     {
       b_click(1);
+
+      add_playlist_pnl.Hide();
+      playlist_pnl.Show();
+
+      Node<PlayList> tmp;
+      tmp = Datas.PList.head;
+      while(tmp != null)
+      {
+        plylist_list.Items.Add(tmp.data.Name);
+        tmp = tmp.Next;
+      }
+
+      
+      
     }
 
     private void add_butt_Click(object sender, EventArgs e)
     {
       b_click(2);
+      add_playlist_pnl.Show();
+      plylst_nme.Select();
     }
 
     private void liked_butt_Click(object sender, EventArgs e)
@@ -114,6 +165,47 @@ namespace DS_proj2_Music_player
       b_click(4);
     }
 
+    private void pictureBox1_Click(object sender, EventArgs e) //info
+    {
+      Console.Write("\a");
+      MessageF info_msg = new MessageF("Made by Kinoosh Vadaei\nDS UI Proj", 0);
+      info_msg.ShowDialog();
+
+    }
+    #endregion
+
+    private void label1_Click(object sender, EventArgs e) // close
+    {
+      MessageF exit_msg = new MessageF("Are you sure to exit?", 1);
+      this.Select();
+      exit_msg.ShowDialog();
+      if (exit_msg.yes)
+        this.Close();
+
+    }
+
+    private void label2_Click(object sender, EventArgs e) // minimize
+    {
+      if (this.WindowState == FormWindowState.Maximized)
+      {
+        this.WindowState = FormWindowState.Normal;
+        this.StartPosition = FormStartPosition.CenterScreen;
+      }
+      else
+        this.WindowState = FormWindowState.Maximized;
+    }
+
+    private void textBox1_TextChanged(object sender, EventArgs e)
+    {
+
+    }
+
+    private void button1_Click(object sender, EventArgs e)
+    {
+      Datas.add_new_play_list(new PlayList { Name = plylst_nme.Text });
+      plylst_nme.Clear();
+      plylst_nme.Select();
+    }
 
     #endregion
 
@@ -121,7 +213,7 @@ namespace DS_proj2_Music_player
 
     private void plylst_butt_MouseLeave(object sender, EventArgs e)
     {
-      if(b != 1)
+      if (b != 1)
         b1.Hide();
     }
 
@@ -165,11 +257,6 @@ namespace DS_proj2_Music_player
     }
     #endregion
 
-    private void pictureBox1_Click(object sender, EventArgs e)
-    {
-      Console.Write("\a");
-      MessageF info_msg = new MessageF("Made by Kinoosh Vadaei\nDS UI Proj", 0);
-      info_msg.Show();
-    }
+
   }
 }
