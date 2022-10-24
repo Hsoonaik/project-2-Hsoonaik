@@ -15,5 +15,7 @@ namespace DS_proj2_Music_player
     public string Len { get; set; }
     public string Topic { get; set; }
     public string Path { get; set; } = "$";
+
+    public bool isLiked { get; set; } = false;
   }
 }

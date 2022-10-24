@@ -24,14 +24,14 @@ namespace DS_proj2_Music_player
     public partial class MainForm : Form
     {
     int b = 0 , bck_butt_val = -1 , music_play_butt = -1; // 0 for playlist
-    Datas Datas = new Datas(); // for playlists    
-    //LinkedList<Music> LocalMusics = new LinkedList<Music>();
-    PlayList CurrentPlayList = new PlayList();
+    Datas Datas = new Datas(); // for playlists
     PlayList LocalMusics = new PlayList { Name = "Local Musics" };
+
+    PlayList CurrentPlayList = new PlayList();
     Music CurrenMusic = new Music();
-    WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer();
+    WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer(); // for playing musics
 
-
+    LinkedList<Music> LikedMusics = new LinkedList<Music>();
 
     void b_click(int tmp)
     {
@@ -216,7 +216,6 @@ namespace DS_proj2_Music_player
 
     private void Form1_Load(object sender, EventArgs e)
     {
-
       //TagLib.File file = TagLib.File.Create(new FileAbstraction("C:\\Users\\Padidar\\Downloads\\Music\\lera_lynn_-_my_least_favorite_life.mp3"));
       //String title = file.Tag.Title;
       //String album = file.Tag.Album;
@@ -239,6 +238,7 @@ namespace DS_proj2_Music_player
     {
       b_click(1);
       music_detail_container.Hide();
+      liked_song_pnl.Hide();
       title_lbl.Text = "";
       add_playlist_pnl.Hide();
       playlist_pnl.Show();
@@ -265,6 +265,8 @@ namespace DS_proj2_Music_player
 
     private void add_butt_Click(object sender, EventArgs e)
     {
+      liked_song_pnl.Hide();
+
       back_butt.Hide();
       title_lbl.Text = "";
       music_detail_container.Hide();
@@ -278,17 +280,32 @@ namespace DS_proj2_Music_player
 
     private void liked_butt_Click(object sender, EventArgs e)
     {
+      add_playlist_pnl.Hide();
+      songs_pnl.Hide();
+      playlist_pnl.Hide();
+      liked_song_list.Items.Clear();
       b_click(3);
       back_butt.Hide();
       music_detail_container.Hide();
-
+      liked_song_list.Show();
+      liked_song_pnl.Show();
       title_lbl.Text = "";
 
+
+      Node<Music> tmp = LikedMusics.head;
+      while(tmp!=null)
+      {
+        if (tmp.data.isLiked)
+          liked_song_list.Items.Add(tmp.data.TrackName);
+        tmp = tmp.Next;
+      }
     }
 
 
     private void merge_butt_Click(object sender, EventArgs e)
     {
+      liked_song_pnl.Hide();
+
       b_click(4);
       back_butt.Hide();
       music_detail_container.Hide();
@@ -423,6 +440,7 @@ namespace DS_proj2_Music_player
 
     private void songs_list_DoubleClick(object sender, EventArgs e)
     {
+      like_butt.Text = "❤";
       ply_butt.Text = "▶";
       music_play_butt = -1;
       Node<Music> tmp = CurrentPlayList.Musics.head;
@@ -500,6 +518,30 @@ namespace DS_proj2_Music_player
     {
       MessageF msg = new MessageF("Will be available in next versions!", 0);
       msg.Show();
+    }
+
+    private void like_butt_Click(object sender, EventArgs e)
+    {
+   
+
+      if (!CurrenMusic.isLiked)
+      {
+        like_butt.Text = "♥";
+        CurrenMusic.isLiked = true;
+        LikedMusics.push_front(CurrenMusic);
+      }
+      else
+      {
+        like_butt.Text = "❤";
+        LikedMusics.remove_by_value(CurrenMusic);
+        CurrenMusic.isLiked = false;
+
+      }
+    }
+
+    private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
     }
 
     private void ply_butt_Click(object sender, EventArgs e)

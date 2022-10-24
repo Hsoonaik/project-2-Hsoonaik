@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace DS_proj2_Music_player
 {
@@ -23,6 +24,26 @@ namespace DS_proj2_Music_player
       if (size == 0)
         tail = head;
       size++;
+    }
+
+    public void remove_by_value(T value)
+    {
+      Node<T> current = head;
+      Node<T> previos = tail;
+      while(current != null && !EqualityComparer<T>.Default.Equals(current.data, value)) // to compare 2 generic datas
+      {
+        previos = current;
+        current = current.Next;
+      }
+      if(current != null)
+      {
+        if (current == head)
+          head = current.Next;
+        else
+          previos.Next = current.Next;
+        current = null;
+        size--;
+      }
     }
 
     public void print()
