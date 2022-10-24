@@ -17,7 +17,7 @@ namespace DS_proj2_Music_player
       get { return _Name; }
       set { if (value != "") { _Name = value; MessageF msg = new MessageF("Successfuly aded!", 0); msg.Show(); } else { MessageF msg = new MessageF("Please enter a valid name!", 0); msg.Show(); } }
     }
-    public bool isChecked { get; set; }
+    public bool isChecked { get; set; } = false;
 
     public LinkedList<Music> Musics = new LinkedList<Music>();
   }

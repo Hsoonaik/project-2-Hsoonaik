@@ -41,7 +41,19 @@ namespace DS_proj2_Music_player
             this.b4 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.tpc_lbl = new System.Windows.Forms.Label();
+            this.len_lbl = new System.Windows.Forms.Label();
+            this.gnr_nme_lbl = new System.Windows.Forms.Label();
+            this.rls_dte_lbl = new System.Windows.Forms.Label();
+            this.artst_nme_lbl = new System.Windows.Forms.Label();
+            this.trck_nme_lbl = new System.Windows.Forms.Label();
+            this.nxt_butt = new System.Windows.Forms.Label();
+            this.pre_butt = new System.Windows.Forms.Label();
+            this.ply_butt = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.add_msc_butt = new System.Windows.Forms.Button();
+            this.back_butt = new System.Windows.Forms.Label();
+            this.title_lbl = new System.Windows.Forms.Label();
             this.songs_pnl = new System.Windows.Forms.Panel();
             this.songs_list = new System.Windows.Forms.ListBox();
             this.playlist_pnl = new System.Windows.Forms.Panel();
@@ -51,13 +63,16 @@ namespace DS_proj2_Music_player
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             this.songs_pnl.SuspendLayout();
             this.playlist_pnl.SuspendLayout();
             this.add_playlist_pnl.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel3
@@ -225,14 +240,127 @@ namespace DS_proj2_Music_player
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(71)))), ((int)(((byte)(86)))));
+            this.panel2.Controls.Add(this.panel5);
+            this.panel2.Controls.Add(this.nxt_butt);
+            this.panel2.Controls.Add(this.pre_butt);
+            this.panel2.Controls.Add(this.ply_butt);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(200, 439);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(650, 128);
             this.panel2.TabIndex = 1;
             // 
+            // tpc_lbl
+            // 
+            this.tpc_lbl.AutoSize = true;
+            this.tpc_lbl.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.tpc_lbl.ForeColor = System.Drawing.Color.White;
+            this.tpc_lbl.Location = new System.Drawing.Point(11, 92);
+            this.tpc_lbl.Name = "tpc_lbl";
+            this.tpc_lbl.Size = new System.Drawing.Size(51, 24);
+            this.tpc_lbl.TabIndex = 13;
+            this.tpc_lbl.Text = "Topic";
+            // 
+            // len_lbl
+            // 
+            this.len_lbl.AutoSize = true;
+            this.len_lbl.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.len_lbl.ForeColor = System.Drawing.Color.White;
+            this.len_lbl.Location = new System.Drawing.Point(141, 68);
+            this.len_lbl.Name = "len_lbl";
+            this.len_lbl.Size = new System.Drawing.Size(38, 24);
+            this.len_lbl.TabIndex = 12;
+            this.len_lbl.Text = "Len";
+            // 
+            // gnr_nme_lbl
+            // 
+            this.gnr_nme_lbl.AutoSize = true;
+            this.gnr_nme_lbl.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.gnr_nme_lbl.ForeColor = System.Drawing.Color.White;
+            this.gnr_nme_lbl.Location = new System.Drawing.Point(141, 44);
+            this.gnr_nme_lbl.Name = "gnr_nme_lbl";
+            this.gnr_nme_lbl.Size = new System.Drawing.Size(60, 24);
+            this.gnr_nme_lbl.TabIndex = 12;
+            this.gnr_nme_lbl.Text = "Genre";
+            // 
+            // rls_dte_lbl
+            // 
+            this.rls_dte_lbl.AutoSize = true;
+            this.rls_dte_lbl.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.rls_dte_lbl.ForeColor = System.Drawing.Color.White;
+            this.rls_dte_lbl.Location = new System.Drawing.Point(10, 68);
+            this.rls_dte_lbl.Name = "rls_dte_lbl";
+            this.rls_dte_lbl.Size = new System.Drawing.Size(115, 24);
+            this.rls_dte_lbl.TabIndex = 11;
+            this.rls_dte_lbl.Text = "Release Date";
+            // 
+            // artst_nme_lbl
+            // 
+            this.artst_nme_lbl.AutoSize = true;
+            this.artst_nme_lbl.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.artst_nme_lbl.ForeColor = System.Drawing.Color.White;
+            this.artst_nme_lbl.Location = new System.Drawing.Point(9, 40);
+            this.artst_nme_lbl.Name = "artst_nme_lbl";
+            this.artst_nme_lbl.Size = new System.Drawing.Size(126, 28);
+            this.artst_nme_lbl.TabIndex = 10;
+            this.artst_nme_lbl.Text = "Artist Name";
+            // 
+            // trck_nme_lbl
+            // 
+            this.trck_nme_lbl.AutoSize = true;
+            this.trck_nme_lbl.Font = new System.Drawing.Font("Calibri", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.trck_nme_lbl.ForeColor = System.Drawing.Color.White;
+            this.trck_nme_lbl.Location = new System.Drawing.Point(3, 0);
+            this.trck_nme_lbl.Name = "trck_nme_lbl";
+            this.trck_nme_lbl.Size = new System.Drawing.Size(207, 45);
+            this.trck_nme_lbl.TabIndex = 8;
+            this.trck_nme_lbl.Text = "Track_Name";
+            // 
+            // nxt_butt
+            // 
+            this.nxt_butt.AutoSize = true;
+            this.nxt_butt.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.nxt_butt.Font = new System.Drawing.Font("Calibri", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.nxt_butt.ForeColor = System.Drawing.Color.White;
+            this.nxt_butt.Location = new System.Drawing.Point(564, 24);
+            this.nxt_butt.Name = "nxt_butt";
+            this.nxt_butt.Size = new System.Drawing.Size(86, 73);
+            this.nxt_butt.TabIndex = 9;
+            this.nxt_butt.Text = "→";
+            this.nxt_butt.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // pre_butt
+            // 
+            this.pre_butt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pre_butt.AutoSize = true;
+            this.pre_butt.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pre_butt.Font = new System.Drawing.Font("Calibri", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.pre_butt.ForeColor = System.Drawing.Color.White;
+            this.pre_butt.Location = new System.Drawing.Point(419, 24);
+            this.pre_butt.Name = "pre_butt";
+            this.pre_butt.Size = new System.Drawing.Size(86, 73);
+            this.pre_butt.TabIndex = 8;
+            this.pre_butt.Text = "←";
+            this.pre_butt.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // ply_butt
+            // 
+            this.ply_butt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ply_butt.AutoSize = true;
+            this.ply_butt.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ply_butt.Font = new System.Drawing.Font("Calibri", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.ply_butt.ForeColor = System.Drawing.Color.White;
+            this.ply_butt.Location = new System.Drawing.Point(499, 24);
+            this.ply_butt.Name = "ply_butt";
+            this.ply_butt.Size = new System.Drawing.Size(78, 73);
+            this.ply_butt.TabIndex = 7;
+            this.ply_butt.Text = "▶";
+            this.ply_butt.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.back_butt);
+            this.panel4.Controls.Add(this.title_lbl);
             this.panel4.Controls.Add(this.songs_pnl);
             this.panel4.Controls.Add(this.playlist_pnl);
             this.panel4.Controls.Add(this.add_playlist_pnl);
@@ -244,14 +372,57 @@ namespace DS_proj2_Music_player
             this.panel4.Size = new System.Drawing.Size(650, 439);
             this.panel4.TabIndex = 3;
             // 
+            // add_msc_butt
+            // 
+            this.add_msc_butt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(76)))), ((int)(((byte)(41)))));
+            this.add_msc_butt.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.add_msc_butt.FlatAppearance.BorderSize = 0;
+            this.add_msc_butt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.add_msc_butt.Font = new System.Drawing.Font("Calibri", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.add_msc_butt.ForeColor = System.Drawing.Color.White;
+            this.add_msc_butt.Location = new System.Drawing.Point(-2, 297);
+            this.add_msc_butt.Name = "add_msc_butt";
+            this.add_msc_butt.Size = new System.Drawing.Size(155, 39);
+            this.add_msc_butt.TabIndex = 7;
+            this.add_msc_butt.Text = "Add Music";
+            this.add_msc_butt.UseVisualStyleBackColor = false;
+            this.add_msc_butt.Visible = false;
+            // 
+            // back_butt
+            // 
+            this.back_butt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.back_butt.AutoSize = true;
+            this.back_butt.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.back_butt.Font = new System.Drawing.Font("Calibri Light", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.back_butt.ForeColor = System.Drawing.Color.White;
+            this.back_butt.Location = new System.Drawing.Point(505, 9);
+            this.back_butt.Name = "back_butt";
+            this.back_butt.Size = new System.Drawing.Size(47, 40);
+            this.back_butt.TabIndex = 6;
+            this.back_butt.Text = "←";
+            this.back_butt.Visible = false;
+            this.back_butt.Click += new System.EventHandler(this.back_butt_Click);
+            // 
+            // title_lbl
+            // 
+            this.title_lbl.AutoSize = true;
+            this.title_lbl.Font = new System.Drawing.Font("Calibri", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.title_lbl.ForeColor = System.Drawing.Color.White;
+            this.title_lbl.Location = new System.Drawing.Point(6, 9);
+            this.title_lbl.Name = "title_lbl";
+            this.title_lbl.Size = new System.Drawing.Size(148, 73);
+            this.title_lbl.TabIndex = 5;
+            this.title_lbl.Text = "Test!";
+            // 
             // songs_pnl
             // 
             this.songs_pnl.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.songs_pnl.Controls.Add(this.add_msc_butt);
             this.songs_pnl.Controls.Add(this.songs_list);
             this.songs_pnl.Font = new System.Drawing.Font("Calibri Light", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.songs_pnl.Location = new System.Drawing.Point(55, 96);
             this.songs_pnl.Name = "songs_pnl";
-            this.songs_pnl.Size = new System.Drawing.Size(550, 300);
+            this.songs_pnl.Size = new System.Drawing.Size(550, 337);
             this.songs_pnl.TabIndex = 4;
             this.songs_pnl.Visible = false;
             // 
@@ -259,6 +430,7 @@ namespace DS_proj2_Music_player
             // 
             this.songs_list.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(32)))), ((int)(((byte)(50)))));
             this.songs_list.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.songs_list.Cursor = System.Windows.Forms.Cursors.Hand;
             this.songs_list.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.songs_list.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(76)))), ((int)(((byte)(41)))));
             this.songs_list.FormattingEnabled = true;
@@ -268,6 +440,8 @@ namespace DS_proj2_Music_player
             this.songs_list.Size = new System.Drawing.Size(550, 294);
             this.songs_list.TabIndex = 0;
             this.songs_list.Visible = false;
+            this.songs_list.SelectedIndexChanged += new System.EventHandler(this.songs_list_SelectedIndexChanged);
+            this.songs_list.DoubleClick += new System.EventHandler(this.songs_list_DoubleClick);
             // 
             // playlist_pnl
             // 
@@ -284,6 +458,7 @@ namespace DS_proj2_Music_player
             // 
             this.plylist_list.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(32)))), ((int)(((byte)(50)))));
             this.plylist_list.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.plylist_list.Cursor = System.Windows.Forms.Cursors.Hand;
             this.plylist_list.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.plylist_list.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(76)))), ((int)(((byte)(41)))));
             this.plylist_list.FormattingEnabled = true;
@@ -358,6 +533,19 @@ namespace DS_proj2_Music_player
             this.label1.Text = "X";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.trck_nme_lbl);
+            this.panel5.Controls.Add(this.tpc_lbl);
+            this.panel5.Controls.Add(this.artst_nme_lbl);
+            this.panel5.Controls.Add(this.len_lbl);
+            this.panel5.Controls.Add(this.rls_dte_lbl);
+            this.panel5.Controls.Add(this.gnr_nme_lbl);
+            this.panel5.Location = new System.Drawing.Point(0, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(369, 128);
+            this.panel5.TabIndex = 14;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -377,12 +565,16 @@ namespace DS_proj2_Music_player
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.songs_pnl.ResumeLayout(false);
             this.playlist_pnl.ResumeLayout(false);
             this.add_playlist_pnl.ResumeLayout(false);
             this.add_playlist_pnl.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -411,6 +603,19 @@ namespace DS_proj2_Music_player
     private System.Windows.Forms.ListBox plylist_list;
     private System.Windows.Forms.Panel songs_pnl;
     private System.Windows.Forms.ListBox songs_list;
+    private System.Windows.Forms.Label title_lbl;
+    private System.Windows.Forms.Label back_butt;
+    private System.Windows.Forms.Label ply_butt;
+    private System.Windows.Forms.Label nxt_butt;
+    private System.Windows.Forms.Label pre_butt;
+    private System.Windows.Forms.Button add_msc_butt;
+    private System.Windows.Forms.Label trck_nme_lbl;
+    private System.Windows.Forms.Label tpc_lbl;
+    private System.Windows.Forms.Label gnr_nme_lbl;
+    private System.Windows.Forms.Label rls_dte_lbl;
+    private System.Windows.Forms.Label artst_nme_lbl;
+    private System.Windows.Forms.Label len_lbl;
+    private System.Windows.Forms.Panel panel5;
   }
 }
 

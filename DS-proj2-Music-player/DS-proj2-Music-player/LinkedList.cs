@@ -8,8 +8,8 @@ namespace DS_proj2_Music_player
 {
   internal class LinkedList<T>
   {
-    public Node<T> head;
-    public Node<T> tail;
+    public Node<T> head { get; set; }
+    public Node<T> tail { get; set; }
     int size = 0;
 
     /// <summary>
@@ -45,5 +45,10 @@ namespace DS_proj2_Music_player
       return tmp.data;
     }
 
+
+    public int getSize()
+    {
+      return size;
+    }
   }
 }
