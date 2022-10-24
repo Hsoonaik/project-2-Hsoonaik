@@ -600,6 +600,7 @@ namespace DS_proj2_Music_player
             this.liked_song_list.Name = "liked_song_list";
             this.liked_song_list.Size = new System.Drawing.Size(550, 294);
             this.liked_song_list.TabIndex = 0;
+            this.liked_song_list.DoubleClick += new System.EventHandler(this.liked_song_list_DoubleClick);
             // 
             // MainForm
             // 

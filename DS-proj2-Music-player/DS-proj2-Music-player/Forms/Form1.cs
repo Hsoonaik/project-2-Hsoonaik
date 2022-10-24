@@ -481,6 +481,8 @@ namespace DS_proj2_Music_player
 
     private void songs_list_DoubleClick(object sender, EventArgs e)
     {
+      if (songs_list.SelectedItem == null)
+        songs_list.SelectedIndex = 0; // to avoid click without selectiong
       like_butt.Text = "❤";
       ply_butt.Text = "▶";
       music_play_butt = -1;
@@ -591,6 +593,47 @@ namespace DS_proj2_Music_player
     private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
     {
 
+    }
+
+    private void liked_song_list_DoubleClick(object sender, EventArgs e)
+    {
+      Node<Music> tmp = AllMusics.head;
+      String tmp_name = liked_song_list.SelectedItem.ToString();
+      Console.WriteLine(tmp_name);
+      int start_str = tmp_name.IndexOf('-') + 2; // get the index arter <num - >
+      tmp_name = liked_song_list.SelectedItem.ToString().Substring(start_str);
+      if (tmp_name.Length >= 18)
+        tmp_name = tmp_name.Substring(0, tmp_name.Length - 3);
+      Console.WriteLine(tmp_name);
+
+
+      while (tmp != null)
+      {
+        if (tmp.data.TrackName.Contains(tmp_name) || tmp.data.TrackName == tmp_name)
+        {
+          CurrenMusic = tmp.data; // to selected music can be reconized!
+
+          string tmpName = tmp.data.TrackName;
+          if (tmpName.Length > 18)
+            tmpName = tmpName.Substring(0, 18) + "...";
+          Console.WriteLine(tmp.data.TrackName);
+          trck_nme_lbl.Text = tmpName; // tmp.data.TrackName
+          artst_nme_lbl.Text = tmp.data.ArtistName;
+          rls_dte_lbl.Text = tmp.data.ReleaseDate;
+          gnr_nme_lbl.Text = tmp.data.Genre;
+          len_lbl.Text = tmp.data.Len;
+          tpc_lbl.Text = tmp.data.Topic;
+
+          if (tmp.data.isLiked)
+            like_butt.Text = "♥";
+          else
+            like_butt.Text = "❤";
+          break;
+        }
+
+        tmp = tmp.Next;
+      }
+      music_detail_container.Show();
     }
 
     private void ply_butt_Click(object sender, EventArgs e)
