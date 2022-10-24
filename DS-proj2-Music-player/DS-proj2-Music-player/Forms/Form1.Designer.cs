@@ -60,12 +60,10 @@ namespace DS_proj2_Music_player
             this.plylist_list = new System.Windows.Forms.ListBox();
             this.back_butt = new System.Windows.Forms.Label();
             this.songs_pnl = new System.Windows.Forms.Panel();
-            this.add_msc_butt = new System.Windows.Forms.Button();
             this.songs_list = new System.Windows.Forms.ListBox();
+            this.chse_file_buttkk = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.add_msc_container = new System.Windows.Forms.Panel();
-            this.chse_file_butt = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -76,7 +74,6 @@ namespace DS_proj2_Music_player
             this.add_playlist_pnl.SuspendLayout();
             this.playlist_pnl.SuspendLayout();
             this.songs_pnl.SuspendLayout();
-            this.add_msc_container.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel3
@@ -346,6 +343,7 @@ namespace DS_proj2_Music_player
             this.nxt_butt.TabIndex = 9;
             this.nxt_butt.Text = "→";
             this.nxt_butt.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.nxt_butt.Click += new System.EventHandler(this.nxt_butt_Click);
             // 
             // pre_butt
             // 
@@ -360,6 +358,7 @@ namespace DS_proj2_Music_player
             this.pre_butt.TabIndex = 8;
             this.pre_butt.Text = "←";
             this.pre_butt.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.pre_butt.Click += new System.EventHandler(this.pre_butt_Click);
             // 
             // ply_butt
             // 
@@ -374,10 +373,10 @@ namespace DS_proj2_Music_player
             this.ply_butt.TabIndex = 7;
             this.ply_butt.Text = "▶";
             this.ply_butt.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ply_butt.Click += new System.EventHandler(this.ply_butt_Click);
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.add_msc_container);
             this.panel4.Controls.Add(this.add_playlist_pnl);
             this.panel4.Controls.Add(this.title_lbl);
             this.panel4.Controls.Add(this.playlist_pnl);
@@ -483,30 +482,13 @@ namespace DS_proj2_Music_player
             // 
             this.songs_pnl.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.songs_pnl.Controls.Add(this.songs_list);
-            this.songs_pnl.Controls.Add(this.add_msc_butt);
+            this.songs_pnl.Controls.Add(this.chse_file_buttkk);
             this.songs_pnl.Font = new System.Drawing.Font("Calibri Light", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.songs_pnl.Location = new System.Drawing.Point(55, 96);
             this.songs_pnl.Name = "songs_pnl";
             this.songs_pnl.Size = new System.Drawing.Size(550, 337);
             this.songs_pnl.TabIndex = 4;
             this.songs_pnl.Visible = false;
-            // 
-            // add_msc_butt
-            // 
-            this.add_msc_butt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(76)))), ((int)(((byte)(41)))));
-            this.add_msc_butt.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.add_msc_butt.FlatAppearance.BorderSize = 0;
-            this.add_msc_butt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.add_msc_butt.Font = new System.Drawing.Font("Calibri", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.add_msc_butt.ForeColor = System.Drawing.Color.White;
-            this.add_msc_butt.Location = new System.Drawing.Point(-2, 297);
-            this.add_msc_butt.Name = "add_msc_butt";
-            this.add_msc_butt.Size = new System.Drawing.Size(155, 39);
-            this.add_msc_butt.TabIndex = 7;
-            this.add_msc_butt.Text = "Add Music";
-            this.add_msc_butt.UseVisualStyleBackColor = false;
-            this.add_msc_butt.Visible = false;
-            this.add_msc_butt.Click += new System.EventHandler(this.add_msc_butt_Click);
             // 
             // songs_list
             // 
@@ -524,6 +506,23 @@ namespace DS_proj2_Music_player
             this.songs_list.Visible = false;
             this.songs_list.SelectedIndexChanged += new System.EventHandler(this.songs_list_SelectedIndexChanged);
             this.songs_list.DoubleClick += new System.EventHandler(this.songs_list_DoubleClick);
+            // 
+            // chse_file_buttkk
+            // 
+            this.chse_file_buttkk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(76)))), ((int)(((byte)(41)))));
+            this.chse_file_buttkk.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.chse_file_buttkk.FlatAppearance.BorderSize = 0;
+            this.chse_file_buttkk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chse_file_buttkk.Font = new System.Drawing.Font("Calibri", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.chse_file_buttkk.ForeColor = System.Drawing.Color.White;
+            this.chse_file_buttkk.Location = new System.Drawing.Point(-2, 297);
+            this.chse_file_buttkk.Name = "chse_file_buttkk";
+            this.chse_file_buttkk.Size = new System.Drawing.Size(155, 39);
+            this.chse_file_buttkk.TabIndex = 7;
+            this.chse_file_buttkk.Text = "Add Music";
+            this.chse_file_buttkk.UseVisualStyleBackColor = false;
+            this.chse_file_buttkk.Visible = false;
+            this.chse_file_buttkk.Click += new System.EventHandler(this.add_msc_butt_Click);
             // 
             // label2
             // 
@@ -552,32 +551,6 @@ namespace DS_proj2_Music_player
             this.label1.TabIndex = 0;
             this.label1.Text = "X";
             this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // add_msc_container
-            // 
-            this.add_msc_container.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.add_msc_container.Controls.Add(this.chse_file_butt);
-            this.add_msc_container.Font = new System.Drawing.Font("Calibri Light", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.add_msc_container.Location = new System.Drawing.Point(47, 99);
-            this.add_msc_container.Name = "add_msc_container";
-            this.add_msc_container.Size = new System.Drawing.Size(550, 300);
-            this.add_msc_container.TabIndex = 7;
-            this.add_msc_container.Visible = false;
-            // 
-            // chse_file_butt
-            // 
-            this.chse_file_butt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(76)))), ((int)(((byte)(41)))));
-            this.chse_file_butt.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.chse_file_butt.FlatAppearance.BorderSize = 0;
-            this.chse_file_butt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chse_file_butt.Font = new System.Drawing.Font("Calibri", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chse_file_butt.Location = new System.Drawing.Point(145, 132);
-            this.chse_file_butt.Name = "chse_file_butt";
-            this.chse_file_butt.Size = new System.Drawing.Size(260, 50);
-            this.chse_file_butt.TabIndex = 1;
-            this.chse_file_butt.Text = "Chose File";
-            this.chse_file_butt.UseVisualStyleBackColor = false;
-            this.chse_file_butt.Click += new System.EventHandler(this.chse_file_butt_Click);
             // 
             // openFileDialog1
             // 
@@ -613,7 +586,6 @@ namespace DS_proj2_Music_player
             this.add_playlist_pnl.PerformLayout();
             this.playlist_pnl.ResumeLayout(false);
             this.songs_pnl.ResumeLayout(false);
-            this.add_msc_container.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -647,7 +619,7 @@ namespace DS_proj2_Music_player
     private System.Windows.Forms.Label ply_butt;
     private System.Windows.Forms.Label nxt_butt;
     private System.Windows.Forms.Label pre_butt;
-    private System.Windows.Forms.Button add_msc_butt;
+    private System.Windows.Forms.Button chse_file_buttkk;
     private System.Windows.Forms.Label trck_nme_lbl;
     private System.Windows.Forms.Label tpc_lbl;
     private System.Windows.Forms.Label gnr_nme_lbl;
@@ -655,8 +627,6 @@ namespace DS_proj2_Music_player
     private System.Windows.Forms.Label artst_nme_lbl;
     private System.Windows.Forms.Label len_lbl;
     private System.Windows.Forms.Panel music_detail_container;
-        private System.Windows.Forms.Panel add_msc_container;
-        private System.Windows.Forms.Button chse_file_butt;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

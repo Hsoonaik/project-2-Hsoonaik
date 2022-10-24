@@ -22,3 +22,4 @@ C:\Users\Padidar\Desktop\Private\uni\Coding\Music playlist\project-2-Hsoonaik\DS
 C:\Users\Padidar\Desktop\Private\uni\Coding\Music playlist\project-2-Hsoonaik\DS-proj2-Music-player\DS-proj2-Music-player\bin\Debug\System.Diagnostics.DiagnosticSource.dll
 C:\Users\Padidar\Desktop\Private\uni\Coding\Music playlist\project-2-Hsoonaik\DS-proj2-Music-player\DS-proj2-Music-player\bin\Debug\TagLib.Portable.dll
 C:\Users\Padidar\Desktop\Private\uni\Coding\Music playlist\project-2-Hsoonaik\DS-proj2-Music-player\DS-proj2-Music-player\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Users\Padidar\Desktop\Private\uni\Coding\Music playlist\project-2-Hsoonaik\DS-proj2-Music-player\DS-proj2-Music-player\bin\Debug\AxInterop.WMPLib.dll

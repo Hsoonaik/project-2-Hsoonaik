@@ -14,6 +14,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 using static TagLib.File;
+using WMPLib;
 
 
 namespace DS_proj2_Music_player
@@ -22,12 +23,15 @@ namespace DS_proj2_Music_player
   
     public partial class MainForm : Form
     {
-    int b = 0 , bck_butt_val = -1; // 0 for playlist
+    int b = 0 , bck_butt_val = -1 , music_play_butt = -1; // 0 for playlist
     Datas Datas = new Datas(); // for playlists    
     //LinkedList<Music> LocalMusics = new LinkedList<Music>();
     PlayList CurrentPlayList = new PlayList();
     PlayList LocalMusics = new PlayList { Name = "Local Musics" };
-    
+    Music CurrenMusic = new Music();
+    WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer();
+
+
 
     void b_click(int tmp)
     {
@@ -96,7 +100,7 @@ namespace DS_proj2_Music_player
 
       var csvTable = new DataTable(); // for reading csv
 
-      using (var csvReader = new CsvReader(new FileStream("musics.csv", FileMode.Open), true, Encoding.UTF8))
+      using (var csvReader = new CsvReader(new FileStream("musics.csv", FileMode.Open , FileAccess.Read , FileShare.ReadWrite), true, Encoding.UTF8))
       {
         csvTable.Load(csvReader);
       }
@@ -122,7 +126,7 @@ namespace DS_proj2_Music_player
           Node<Music> tmp = LocalMusics.Musics.head;
           while (tmp != null)
           {
-            if (tmp.data.TrackName == null) { adding_item = ""; tmp.data.TrackName = ""; }
+            if (tmp.data.TrackName == null) { adding_item = "🛇 No name 🛇"; tmp.data.TrackName = "🛇 No name 🛇"; }
 
             else if (tmp.data.TrackName.Length > 15)
               adding_item = tmp.data.TrackName.Substring(0, 15) + "..."; // to avoid text overwriting!
@@ -151,13 +155,17 @@ namespace DS_proj2_Music_player
               {
                 Node<Music> tmp2 = tmp.data.Musics.head;
 
-                if (tmp2.data.TrackName.Length > 15)
-                  adding_item = tmp2.data.TrackName.Substring(0, 15) + "...";
-                else
-                  adding_item = tmp2.data.TrackName;
+
 
                 while (tmp2 != null)
                 {
+                  if (tmp2.data.TrackName == null) { adding_item = "🛇 No name 🛇"; tmp2.data.TrackName = "🛇 No name 🛇"; }
+
+                  else if (tmp2.data.TrackName.Length > 15)
+                    adding_item = tmp2.data.TrackName.Substring(0, 15) + "...";
+                  else
+                    adding_item = tmp2.data.TrackName;
+
                   songs_list.Items.Add(i.ToString() + " - " + adding_item);
                   tmp2 = tmp2.Next;
                   i++;
@@ -169,7 +177,7 @@ namespace DS_proj2_Music_player
               {
                 MessageF err_msg = new MessageF("Playlist is Empty!", 0);
                 err_msg.ShowDialog();
-
+                break;
               }
             }
 
@@ -231,7 +239,6 @@ namespace DS_proj2_Music_player
     {
       b_click(1);
       music_detail_container.Hide();
-      add_msc_container.Hide();
       title_lbl.Text = "";
       add_playlist_pnl.Hide();
       playlist_pnl.Show();
@@ -258,7 +265,6 @@ namespace DS_proj2_Music_player
 
     private void add_butt_Click(object sender, EventArgs e)
     {
-      add_msc_container.Hide();
       back_butt.Hide();
       title_lbl.Text = "";
       music_detail_container.Hide();
@@ -272,7 +278,6 @@ namespace DS_proj2_Music_player
 
     private void liked_butt_Click(object sender, EventArgs e)
     {
-      add_msc_container.Hide();
       b_click(3);
       back_butt.Hide();
       music_detail_container.Hide();
@@ -284,7 +289,6 @@ namespace DS_proj2_Music_player
 
     private void merge_butt_Click(object sender, EventArgs e)
     {
-      add_msc_container.Hide();
       b_click(4);
       back_butt.Hide();
       music_detail_container.Hide();
@@ -419,9 +423,11 @@ namespace DS_proj2_Music_player
 
     private void songs_list_DoubleClick(object sender, EventArgs e)
     {
-
+      ply_butt.Text = "▶";
+      music_play_butt = -1;
       Node<Music> tmp = CurrentPlayList.Musics.head;
       String tmp_name = songs_list.SelectedItem.ToString();
+      Console.WriteLine(tmp_name);
       int start_str = tmp_name.IndexOf('-') + 2; // get the index arter <num - >
       tmp_name = songs_list.SelectedItem.ToString().Substring(start_str);
       if (tmp_name.Length >= 18)
@@ -433,6 +439,8 @@ namespace DS_proj2_Music_player
       {
         if (tmp.data.TrackName.Contains(tmp_name) || tmp.data.TrackName == tmp_name)
         {
+          CurrenMusic = tmp.data; // to selected music can be reconized!
+
           string tmpName = tmp.data.TrackName;
           if (tmpName.Length > 18)
             tmpName = tmpName.Substring(0, 18) + "...";
@@ -452,6 +460,11 @@ namespace DS_proj2_Music_player
 
     private void chse_file_butt_Click(object sender, EventArgs e)
     {
+
+    }
+
+    private void add_msc_butt_Click(object sender, EventArgs e)
+    {
       string path = get_added_music_path();
       TagLib.File track = TagLib.File.Create(new FileAbstraction(path));
       //String title = file.Tag.Title;
@@ -468,24 +481,46 @@ namespace DS_proj2_Music_player
         Genre = track.Tag.FirstGenre,
         Len = Convert.ToInt16(track.Properties.Duration.TotalSeconds).ToString(),
         Topic = track.Tag.Title,
-       
-    });
 
-      
+      });
 
-      add_msc_container.Hide();
+
+
       add_to_song_list();
       songs_pnl.Show();
     }
 
-    private void add_msc_butt_Click(object sender, EventArgs e)
+    private void nxt_butt_Click(object sender, EventArgs e)
     {
-      title_lbl.Text = "";
-      playlist_pnl.Hide();
-      songs_pnl.Hide();
-      add_playlist_pnl.Hide();
-      
-      add_msc_container.Show();
+      MessageF msg = new MessageF("Will be available in next versions!", 0);
+      msg.Show();
+    }
+
+    private void pre_butt_Click(object sender, EventArgs e)
+    {
+      MessageF msg = new MessageF("Will be available in next versions!", 0);
+      msg.Show();
+    }
+
+    private void ply_butt_Click(object sender, EventArgs e)
+    {
+      Console.WriteLine(CurrenMusic.Path);
+      if(CurrenMusic.Path != "$")
+      {
+        wplayer.URL = CurrenMusic.Path;
+        if (music_play_butt < 0)
+        {
+          ply_butt.Text = "||";
+          wplayer.controls.play();
+          music_play_butt *= -1;
+        }
+        else
+        {
+          ply_butt.Text = "▶";
+          wplayer.controls.stop();
+          music_play_butt *= -1;
+        }
+      }
 
     }
 
@@ -494,7 +529,7 @@ namespace DS_proj2_Music_player
       if(plylist_list.SelectedItem == null)
         plylist_list.SelectedIndex = 0; // to avoid click without selectiong
 
-      add_msc_butt.Show();
+      chse_file_buttkk.Show();
 
       back_butt.Show();
       bck_butt_val = 0;// for playlist
