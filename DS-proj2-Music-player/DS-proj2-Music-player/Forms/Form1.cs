@@ -11,6 +11,7 @@ using System.Net.Configuration;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace DS_proj2_Music_player
 {
@@ -21,7 +22,7 @@ namespace DS_proj2_Music_player
     
     int b = 0;
     Datas Datas = new Datas(); // for playlists    
-
+    LinkedList<Music> LocalMusics = new LinkedList<Music>();
 
     void b_click(int tmp)
     {
@@ -68,6 +69,7 @@ namespace DS_proj2_Music_player
     {
 
       InitializeComponent();
+
       Controls.OfType<MdiClient>().FirstOrDefault().BackColor = Color.FromArgb(8, 32, 50); // to set color that changed by mdi
 
       #region buuts
@@ -90,6 +92,8 @@ namespace DS_proj2_Music_player
 
       #region CsvReading
 
+      plylist_list.Items.Add("Local Musics"); // to show these musics
+
       var csvTable = new DataTable(); // for reading csv
 
       using (var csvReader = new CsvReader(new FileStream("musics.csv", FileMode.Open), true, Encoding.UTF8))
@@ -99,17 +103,12 @@ namespace DS_proj2_Music_player
 
       foreach (DataRow row in csvTable.Rows)
       {
-        MessageBox.Show(row[0].ToString());
-        MessageBox.Show(row[1].ToString());
-
+        LocalMusics.push_front(new Music {ArtistName = row[0].ToString() , TrackName = row[1].ToString() , ReleaseDate = row[2].ToString() , Genre = row[3].ToString() , Len = row[4].ToString() , Topic = row[5].ToString() });
+        // Pushs all csv datas in localMusic list
       }
 
 
       #endregion
-
-
-
-
 
 
       //X_butt.Cursor = Cursors.Hand;
@@ -118,6 +117,7 @@ namespace DS_proj2_Music_player
 
     private void Form1_Load(object sender, EventArgs e)
     {
+      playlist_pnl.Show();
       SplashForm F = new SplashForm();
       this.Hide();
       //F.ShowDialog();
@@ -134,22 +134,32 @@ namespace DS_proj2_Music_player
 
       add_playlist_pnl.Hide();
       playlist_pnl.Show();
+      plylist_list.Show();
+      plylist_list.Items.Clear();
 
       Node<PlayList> tmp;
       tmp = Datas.PList.head;
       while(tmp != null)
       {
-        plylist_list.Items.Add(tmp.data.Name);
-        tmp = tmp.Next;
+        try
+        {
+          plylist_list.Items.Add(tmp.data.Name);
+          tmp = tmp.Next;
+        }
+        catch { break; }
+        
       }
 
-      
-      
+      plylist_list.Items.Add("Local Musics");
+
+
     }
 
     private void add_butt_Click(object sender, EventArgs e)
     {
       b_click(2);
+      playlist_pnl.Hide();
+      songs_pnl.Hide();
       add_playlist_pnl.Show();
       plylst_nme.Select();
     }
@@ -255,8 +265,71 @@ namespace DS_proj2_Music_player
       if (b != 4)
         b4.Hide();
     }
+
     #endregion
 
+    private void plylist_list_DoubleClick(object sender, EventArgs e)
+    {
+      MessageBox.Show("");
+    }
 
+    private void plylist_list_DoubleClick_1(object sender, EventArgs e)
+    {
+      playlist_pnl.Hide();
+      songs_pnl.Show();
+      songs_list.Show();
+      string adding_item;
+
+      string item = plylist_list.SelectedItem.ToString();
+      if(item == "Local Musics")
+      {
+        int i = 1;
+        Node<Music> tmp = LocalMusics.head;
+        while (tmp != null)
+        {
+          if (tmp.data.TrackName.Length > 15)
+            adding_item = tmp.data.TrackName.Substring(0 , 15) + "..."; // to avoid text overwriting!
+          else
+            adding_item = tmp.data.TrackName;
+
+
+          songs_list.Items.Add(i.ToString() + " - " + adding_item);
+          tmp = tmp.Next;
+          i++;
+        }
+      }
+
+
+     else
+      {
+        int i = 1;
+        Node<PlayList> tmp = Datas.PList.head;
+
+        while (tmp != null)
+        {
+
+          if (tmp.data.Name == item)
+          {
+
+            Node<Music> tmp2 = tmp.data.Musics.head;
+
+            if (tmp2.data.TrackName.Length > 15)
+              adding_item = tmp2.data.TrackName.Substring(0, 15) + "...";
+            else
+              adding_item = tmp2.data.TrackName;
+
+            while (tmp2 != null)
+            {
+              songs_list.Items.Add(i.ToString() + " - " + adding_item);
+              tmp2 = tmp2.Next;
+              i++;
+            }
+          }
+
+          tmp = tmp.Next;
+        }
+      }
+      
+    }
   }
 }

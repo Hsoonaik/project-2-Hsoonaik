@@ -42,19 +42,22 @@ namespace DS_proj2_Music_player
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.songs_pnl = new System.Windows.Forms.Panel();
+            this.songs_list = new System.Windows.Forms.ListBox();
+            this.playlist_pnl = new System.Windows.Forms.Panel();
+            this.plylist_list = new System.Windows.Forms.ListBox();
             this.add_playlist_pnl = new System.Windows.Forms.Panel();
             this.plylst_nme = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.playlist_pnl = new System.Windows.Forms.Panel();
-            this.plylist_list = new System.Windows.Forms.ListBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.add_playlist_pnl.SuspendLayout();
+            this.songs_pnl.SuspendLayout();
             this.playlist_pnl.SuspendLayout();
+            this.add_playlist_pnl.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel3
@@ -230,6 +233,7 @@ namespace DS_proj2_Music_player
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.songs_pnl);
             this.panel4.Controls.Add(this.playlist_pnl);
             this.panel4.Controls.Add(this.add_playlist_pnl);
             this.panel4.Controls.Add(this.label2);
@@ -239,6 +243,92 @@ namespace DS_proj2_Music_player
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(650, 439);
             this.panel4.TabIndex = 3;
+            // 
+            // songs_pnl
+            // 
+            this.songs_pnl.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.songs_pnl.Controls.Add(this.songs_list);
+            this.songs_pnl.Font = new System.Drawing.Font("Calibri Light", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.songs_pnl.Location = new System.Drawing.Point(55, 96);
+            this.songs_pnl.Name = "songs_pnl";
+            this.songs_pnl.Size = new System.Drawing.Size(550, 300);
+            this.songs_pnl.TabIndex = 4;
+            this.songs_pnl.Visible = false;
+            // 
+            // songs_list
+            // 
+            this.songs_list.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(32)))), ((int)(((byte)(50)))));
+            this.songs_list.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.songs_list.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.songs_list.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(76)))), ((int)(((byte)(41)))));
+            this.songs_list.FormattingEnabled = true;
+            this.songs_list.ItemHeight = 49;
+            this.songs_list.Location = new System.Drawing.Point(0, 0);
+            this.songs_list.Name = "songs_list";
+            this.songs_list.Size = new System.Drawing.Size(550, 294);
+            this.songs_list.TabIndex = 0;
+            this.songs_list.Visible = false;
+            // 
+            // playlist_pnl
+            // 
+            this.playlist_pnl.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.playlist_pnl.Controls.Add(this.plylist_list);
+            this.playlist_pnl.Font = new System.Drawing.Font("Calibri Light", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.playlist_pnl.Location = new System.Drawing.Point(55, 96);
+            this.playlist_pnl.Name = "playlist_pnl";
+            this.playlist_pnl.Size = new System.Drawing.Size(550, 300);
+            this.playlist_pnl.TabIndex = 3;
+            this.playlist_pnl.Visible = false;
+            // 
+            // plylist_list
+            // 
+            this.plylist_list.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(32)))), ((int)(((byte)(50)))));
+            this.plylist_list.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.plylist_list.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.plylist_list.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(76)))), ((int)(((byte)(41)))));
+            this.plylist_list.FormattingEnabled = true;
+            this.plylist_list.ItemHeight = 49;
+            this.plylist_list.Location = new System.Drawing.Point(0, 0);
+            this.plylist_list.Name = "plylist_list";
+            this.plylist_list.Size = new System.Drawing.Size(550, 294);
+            this.plylist_list.TabIndex = 0;
+            this.plylist_list.DoubleClick += new System.EventHandler(this.plylist_list_DoubleClick_1);
+            // 
+            // add_playlist_pnl
+            // 
+            this.add_playlist_pnl.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.add_playlist_pnl.Controls.Add(this.plylst_nme);
+            this.add_playlist_pnl.Controls.Add(this.button1);
+            this.add_playlist_pnl.Font = new System.Drawing.Font("Calibri Light", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.add_playlist_pnl.Location = new System.Drawing.Point(50, 96);
+            this.add_playlist_pnl.Name = "add_playlist_pnl";
+            this.add_playlist_pnl.Size = new System.Drawing.Size(550, 300);
+            this.add_playlist_pnl.TabIndex = 2;
+            this.add_playlist_pnl.Visible = false;
+            // 
+            // plylst_nme
+            // 
+            this.plylst_nme.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.plylst_nme.Font = new System.Drawing.Font("Calibri Light", 26F);
+            this.plylst_nme.Location = new System.Drawing.Point(95, 94);
+            this.plylst_nme.Name = "plylst_nme";
+            this.plylst_nme.Size = new System.Drawing.Size(360, 60);
+            this.plylst_nme.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(76)))), ((int)(((byte)(41)))));
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Calibri", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(145, 188);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(260, 50);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Creat playlist";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label2
             // 
@@ -268,67 +358,6 @@ namespace DS_proj2_Music_player
             this.label1.Text = "X";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // add_playlist_pnl
-            // 
-            this.add_playlist_pnl.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.add_playlist_pnl.Controls.Add(this.plylst_nme);
-            this.add_playlist_pnl.Controls.Add(this.button1);
-            this.add_playlist_pnl.Font = new System.Drawing.Font("Calibri Light", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.add_playlist_pnl.Location = new System.Drawing.Point(50, 96);
-            this.add_playlist_pnl.Name = "add_playlist_pnl";
-            this.add_playlist_pnl.Size = new System.Drawing.Size(550, 300);
-            this.add_playlist_pnl.TabIndex = 2;
-            this.add_playlist_pnl.Visible = false;
-            // 
-            // plylst_nme
-            // 
-            this.plylst_nme.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.plylst_nme.Font = new System.Drawing.Font("Calibri Light", 26F);
-            this.plylst_nme.Location = new System.Drawing.Point(95, 94);
-            this.plylst_nme.Name = "plylst_nme";
-            this.plylst_nme.Size = new System.Drawing.Size(360, 60);
-            this.plylst_nme.TabIndex = 0;
-            this.plylst_nme.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(76)))), ((int)(((byte)(41)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Calibri", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(145, 188);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(260, 50);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Creat playlist";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // playlist_pnl
-            // 
-            this.playlist_pnl.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.playlist_pnl.Controls.Add(this.plylist_list);
-            this.playlist_pnl.Font = new System.Drawing.Font("Calibri Light", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.playlist_pnl.Location = new System.Drawing.Point(50, 96);
-            this.playlist_pnl.Name = "playlist_pnl";
-            this.playlist_pnl.Size = new System.Drawing.Size(550, 300);
-            this.playlist_pnl.TabIndex = 3;
-            this.playlist_pnl.Visible = false;
-            // 
-            // plylist_list
-            // 
-            this.plylist_list.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(32)))), ((int)(((byte)(50)))));
-            this.plylist_list.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.plylist_list.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.plylist_list.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(76)))), ((int)(((byte)(41)))));
-            this.plylist_list.FormattingEnabled = true;
-            this.plylist_list.ItemHeight = 49;
-            this.plylist_list.Location = new System.Drawing.Point(0, 0);
-            this.plylist_list.Name = "plylist_list";
-            this.plylist_list.Size = new System.Drawing.Size(550, 294);
-            this.plylist_list.TabIndex = 0;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -350,9 +379,10 @@ namespace DS_proj2_Music_player
             this.panel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.songs_pnl.ResumeLayout(false);
+            this.playlist_pnl.ResumeLayout(false);
             this.add_playlist_pnl.ResumeLayout(false);
             this.add_playlist_pnl.PerformLayout();
-            this.playlist_pnl.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -379,6 +409,8 @@ namespace DS_proj2_Music_player
     private System.Windows.Forms.Button button1;
     private System.Windows.Forms.Panel playlist_pnl;
     private System.Windows.Forms.ListBox plylist_list;
+    private System.Windows.Forms.Panel songs_pnl;
+    private System.Windows.Forms.ListBox songs_list;
   }
 }
 
