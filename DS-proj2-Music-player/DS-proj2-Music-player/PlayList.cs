@@ -15,7 +15,7 @@ namespace DS_proj2_Music_player
     public string Name
     {
       get { return _Name; }
-      set { if (value != "") { _Name = value; MessageF msg = new MessageF("Successfuly aded!", 0); msg.Show(); } else { MessageF msg = new MessageF("Please enter a valid name!", 0); msg.Show(); } }
+      set { if (value != "") { _Name = value; if (value != "Local Musics") { MessageF msg = new MessageF("Successfuly aded!", 0); msg.Show(); } } else { MessageF msg = new MessageF("Please enter a valid name!", 0); msg.Show(); } }
     }
     public bool isChecked { get; set; } = false;
 

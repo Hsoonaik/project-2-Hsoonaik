@@ -14,5 +14,6 @@ namespace DS_proj2_Music_player
     public string Genre { get; set; }
     public string Len { get; set; }
     public string Topic { get; set; }
+    public string Path { get; set; }
   }
 }
