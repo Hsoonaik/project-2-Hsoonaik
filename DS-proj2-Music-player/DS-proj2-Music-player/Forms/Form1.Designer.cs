@@ -68,6 +68,7 @@ namespace DS_proj2_Music_player
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.liked_song_pnl = new System.Windows.Forms.Panel();
             this.liked_song_list = new System.Windows.Forms.ListBox();
+            this.sort_selection_butt = new System.Windows.Forms.ComboBox();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -276,7 +277,7 @@ namespace DS_proj2_Music_player
             this.like_butt.Cursor = System.Windows.Forms.Cursors.Hand;
             this.like_butt.Font = new System.Drawing.Font("Calibri", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.like_butt.ForeColor = System.Drawing.Color.White;
-            this.like_butt.Location = new System.Drawing.Point(304, 10);
+            this.like_butt.Location = new System.Drawing.Point(302, 4);
             this.like_butt.Name = "like_butt";
             this.like_butt.Size = new System.Drawing.Size(65, 45);
             this.like_butt.TabIndex = 14;
@@ -395,9 +396,10 @@ namespace DS_proj2_Music_player
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.sort_selection_butt);
+            this.panel4.Controls.Add(this.playlist_pnl);
             this.panel4.Controls.Add(this.liked_song_pnl);
             this.panel4.Controls.Add(this.title_lbl);
-            this.panel4.Controls.Add(this.playlist_pnl);
             this.panel4.Controls.Add(this.back_butt);
             this.panel4.Controls.Add(this.songs_pnl);
             this.panel4.Controls.Add(this.label2);
@@ -602,6 +604,26 @@ namespace DS_proj2_Music_player
             this.liked_song_list.TabIndex = 0;
             this.liked_song_list.DoubleClick += new System.EventHandler(this.liked_song_list_DoubleClick);
             // 
+            // sort_selection_butt
+            // 
+            this.sort_selection_butt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(76)))), ((int)(((byte)(41)))));
+            this.sort_selection_butt.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.sort_selection_butt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.sort_selection_butt.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.sort_selection_butt.ForeColor = System.Drawing.Color.White;
+            this.sort_selection_butt.FormattingEnabled = true;
+            this.sort_selection_butt.Items.AddRange(new object[] {
+            "Track Name",
+            "Artist Name",
+            "Release Date"});
+            this.sort_selection_butt.Location = new System.Drawing.Point(512, 57);
+            this.sort_selection_butt.Name = "sort_selection_butt";
+            this.sort_selection_butt.Size = new System.Drawing.Size(125, 26);
+            this.sort_selection_butt.TabIndex = 7;
+            this.sort_selection_butt.Text = "Sort By";
+            this.sort_selection_butt.Visible = false;
+            this.sort_selection_butt.SelectedIndexChanged += new System.EventHandler(this.sort_selection_SelectedIndexChanged);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -677,6 +699,7 @@ namespace DS_proj2_Music_player
     private System.Windows.Forms.Label like_butt;
     private System.Windows.Forms.Panel liked_song_pnl;
     private System.Windows.Forms.ListBox liked_song_list;
+    private System.Windows.Forms.ComboBox sort_selection_butt;
   }
 }
 

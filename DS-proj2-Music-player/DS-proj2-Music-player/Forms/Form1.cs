@@ -19,11 +19,11 @@ using WMPLib;
 
 namespace DS_proj2_Music_player
 {
-  
-  
-    public partial class MainForm : Form
-    {
-    int b = 0 , bck_butt_val = -1 , music_play_butt = -1; // 0 for playlist
+
+
+  public partial class MainForm : Form
+  {
+    int b = 0, bck_butt_val = -1, music_play_butt = -1; // 0 for playlist
     Datas Datas = new Datas(); // for playlists
     PlayList LocalMusics = new PlayList { Name = "Local Musics" };
 
@@ -50,7 +50,7 @@ namespace DS_proj2_Music_player
 
     void b_click(int tmp)
     {
-      switch(tmp)
+      switch (tmp)
       {
         case 1:
           b1.Show();
@@ -115,7 +115,7 @@ namespace DS_proj2_Music_player
 
       var csvTable = new DataTable(); // for reading csv
 
-      using (var csvReader = new CsvReader(new FileStream("musics.csv", FileMode.Open , FileAccess.Read , FileShare.ReadWrite), true, Encoding.UTF8))
+      using (var csvReader = new CsvReader(new FileStream("musics.csv", FileMode.Open, FileAccess.Read, FileShare.ReadWrite), true, Encoding.UTF8))
       {
         csvTable.Load(csvReader);
       }
@@ -215,13 +215,78 @@ namespace DS_proj2_Music_player
     {
       int i = 0;
       Node<Music> tmp = LikedMusics.head;
-      while(tmp != null)
+      while (tmp != null)
       {
         if (tmp.data.TrackName == name)
           return true;
         tmp = tmp.Next;
       }
       return false;
+    }
+
+    void sort_by_track_name(ref LinkedList<Music> P)
+    {
+      LinkedList<Music> sorted_linked_list = new LinkedList<Music>();
+      List<Music> list = new List<Music>();
+      Node<Music> tmp = P.head;
+
+      while (tmp != null)
+      {
+        list.Add(tmp.data);
+        tmp = tmp.Next;
+      }
+
+      var q = list.OrderBy((i) => i.TrackName);
+
+      for (int i = q.ToList().Count - 1; i >= 0; i--)
+      {
+        sorted_linked_list.push_front(q.ToList()[i]);
+      }
+
+      P = sorted_linked_list;
+    }
+    void sort_by_artist_name(ref LinkedList<Music> P)
+    {
+      LinkedList<Music> sorted_linked_list = new LinkedList<Music>();
+      List<Music> list = new List<Music>();
+      Node<Music> tmp = P.head;
+
+      while (tmp != null)
+      {
+        list.Add(tmp.data);
+        tmp = tmp.Next;
+      }
+
+      var q = list.OrderBy((i) => i.ArtistName);
+
+      for(int i = q.ToList().Count - 1; i >= 0; i--)
+      {
+        sorted_linked_list.push_front(q.ToList()[i]);
+      }
+
+      P = sorted_linked_list;
+
+    }
+    void sort_by_release_date(ref LinkedList<Music> P)
+    {
+      LinkedList<Music> sorted_linked_list = new LinkedList<Music>();
+      List<Music> list = new List<Music>();
+      Node<Music> tmp = P.head;
+
+      while (tmp != null)
+      {
+        list.Add(tmp.data);
+        tmp = tmp.Next;
+      }
+
+      var q = list.OrderBy((i) => i.ReleaseDate);
+
+      for (int i = q.ToList().Count - 1; i >= 0; i--)
+      {
+        sorted_linked_list.push_front(q.ToList()[i]);
+      }
+
+      P = sorted_linked_list;
     }
 
 
@@ -232,12 +297,8 @@ namespace DS_proj2_Music_player
 
 
 
-
-
-
-
-    #region About Form
-    public MainForm()
+      #region About Form
+      public MainForm()
     {
 
 
@@ -257,6 +318,7 @@ namespace DS_proj2_Music_player
 
     private void Form1_Load(object sender, EventArgs e)
     {
+
       //TagLib.File file = TagLib.File.Create(new FileAbstraction("C:\\Users\\Padidar\\Downloads\\Music\\lera_lynn_-_my_least_favorite_life.mp3"));
       //String title = file.Tag.Title;
       //String album = file.Tag.Album;
@@ -636,6 +698,35 @@ namespace DS_proj2_Music_player
       music_detail_container.Show();
     }
 
+    private void sort_selection_SelectedIndexChanged(object sender, EventArgs e)
+    {
+      songs_list.Items.Clear();
+      if (sort_selection_butt.SelectedIndex == 0)
+      {
+        if (CurrentPlayList.Name == "Local Musics")
+          sort_by_track_name(ref LocalMusics.Musics);
+        else
+          sort_by_track_name(ref CurrentPlayList.Musics);
+      }
+      else if(sort_selection_butt.SelectedIndex == 1)
+      {
+        if (CurrentPlayList.Name == "Local Musics")
+          sort_by_artist_name(ref LocalMusics.Musics);
+        else
+          sort_by_artist_name(ref CurrentPlayList.Musics);
+      }
+      else if (sort_selection_butt.SelectedIndex == 2)
+      {
+        if (CurrentPlayList.Name == "Local Musics")
+          sort_by_release_date(ref LocalMusics.Musics);
+        else
+          sort_by_release_date(ref CurrentPlayList.Musics);
+      }
+
+      add_to_song_list();
+
+    }
+
     private void ply_butt_Click(object sender, EventArgs e)
     {
       Console.WriteLine(CurrenMusic.Path);
@@ -663,8 +754,10 @@ namespace DS_proj2_Music_player
       if(plylist_list.SelectedItem == null)
         plylist_list.SelectedIndex = 0; // to avoid click without selectiong
 
+      
       chse_file_buttkk.Show();
 
+      sort_selection_butt.Show();
       back_butt.Show();
       bck_butt_val = 0;// for playlist
 
