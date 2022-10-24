@@ -32,6 +32,21 @@ namespace DS_proj2_Music_player
     WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer(); // for playing musics
 
     LinkedList<Music> LikedMusics = new LinkedList<Music>();
+    LinkedList<Music> AllMusics = new LinkedList<Music>();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     void b_click(int tmp)
     {
@@ -108,6 +123,7 @@ namespace DS_proj2_Music_player
       foreach (DataRow row in csvTable.Rows)
       {
         LocalMusics.Musics.push_front(new Music { ArtistName = row[0].ToString(), TrackName = row[1].ToString(), ReleaseDate = row[2].ToString(), Genre = row[3].ToString(), Len = row[4].ToString(), Topic = row[5].ToString() });
+        AllMusics.push_front(new Music { ArtistName = row[0].ToString(), TrackName = row[1].ToString(), ReleaseDate = row[2].ToString(), Genre = row[3].ToString(), Len = row[4].ToString(), Topic = row[5].ToString() });
         // Pushs all csv datas in localMusic list
       }
     }
@@ -195,6 +211,31 @@ namespace DS_proj2_Music_player
       string path = openFileDialog1.FileName;
       return path;
     }
+    bool search_in_liked_list(string name) // true if founded
+    {
+      int i = 0;
+      Node<Music> tmp = LikedMusics.head;
+      while(tmp != null)
+      {
+        if (tmp.data.TrackName == name)
+          return true;
+        tmp = tmp.Next;
+      }
+      return false;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
     #region About Form
     public MainForm()
     {
@@ -469,8 +510,14 @@ namespace DS_proj2_Music_player
           gnr_nme_lbl.Text = tmp.data.Genre;
           len_lbl.Text = tmp.data.Len;
           tpc_lbl.Text = tmp.data.Topic;
+
+          if (tmp.data.isLiked)
+            like_butt.Text = "♥";
+          else
+            like_butt.Text = "❤";
           break;
         }
+
         tmp = tmp.Next;
       }
       music_detail_container.Show();
@@ -502,6 +549,7 @@ namespace DS_proj2_Music_player
 
       });
 
+      AllMusics.push_front(CurrentPlayList.Musics.head.data); // add to all musics
 
 
       add_to_song_list();
@@ -528,7 +576,8 @@ namespace DS_proj2_Music_player
       {
         like_butt.Text = "♥";
         CurrenMusic.isLiked = true;
-        LikedMusics.push_front(CurrenMusic);
+        if(!search_in_liked_list(CurrenMusic.TrackName))
+          LikedMusics.push_front(CurrenMusic);
       }
       else
       {
