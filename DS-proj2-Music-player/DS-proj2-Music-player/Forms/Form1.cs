@@ -310,9 +310,11 @@ namespace DS_proj2_Music_player
 
       while (tmp1 != null)
       {
+        Console.WriteLine(tmp1.data.ArtistName);
         while (tmp2 != null)
         {
-          if (tmp1.data.TrackName == tmp2.data.TrackName)
+          Console.WriteLine(tmp2.data.ArtistName);
+          if (tmp1.data.TrackName == tmp2.data.TrackName && tmp2.data.TrackName != "!@#$")
           {
             P.remove_by_value(tmp2.data);
             tmp2.data.TrackName = "!@#$";
@@ -830,7 +832,7 @@ namespace DS_proj2_Music_player
       }
 
       LinkedList<Music> NewLinkedList = new LinkedList<Music>();
-      if (check_play_list_list.CheckedItems.Count == 2)
+      if (check_play_list_list.CheckedItems.Count == 2 && !is_shuffle.Checked)
       {
         PlayList Result = new PlayList();
         PlayList item1;
@@ -841,8 +843,52 @@ namespace DS_proj2_Music_player
 
         Result.Musics.merge(item1.Musics, item2.Musics);
         remove_repited(ref Result.Musics);
-        Result.Name = "New_" + item1.Name + " _" + item2.Name;
+        Result.Name = ("New_" + item1.Name + " _" + item2.Name + "_" + Result.GetHashCode()).Substring(0, 25) + "...";
         Datas.PList.push_front(Result);
+      }
+      else if(check_play_list_list.CheckedItems.Count >= 2 && is_shuffle.Checked)
+      {
+        PlayList Result = new PlayList();
+        List<LinkedList<Music>> lll = new List<LinkedList<Music>>();
+
+        Node<PlayList> tmp = CheckedList.head;
+        for (int i = 0; i < CheckedList.getSize(); i++)
+        {
+          lll.Add(tmp.data.Musics);
+          tmp = tmp.Next;
+        }
+
+        Result.Musics.shuffle_merge(lll);
+        remove_repited(ref Result.Musics);
+        Result.Name = "New_" + Result.GetHashCode();
+        Datas.PList.push_front(Result);
+      }
+    }
+
+    private void delete_music_butt_Click(object sender, EventArgs e)
+    {
+      if (songs_list.SelectedItem != null)
+      {
+        String tmp_name = songs_list.SelectedItem.ToString();
+        Console.WriteLine(tmp_name);
+        int start_str = tmp_name.IndexOf('-') + 2; // get the index arter <num - >
+        tmp_name = songs_list.SelectedItem.ToString().Substring(start_str);
+        if (tmp_name.Length >= 18)
+          tmp_name = tmp_name.Substring(0, tmp_name.Length - 3);
+        Console.WriteLine(tmp_name);
+
+        Node<Music> tmp = CurrentPlayList.Musics.head;
+        while (tmp != null)
+        {
+          if (tmp.data.TrackName == tmp_name || tmp.data.TrackName.Contains(tmp_name))
+          {
+            CurrentPlayList.Musics.remove_by_value(tmp.data);
+            break;
+          }
+          tmp = tmp.Next;
+        }
+
+        add_to_song_list();
       }
     }
 

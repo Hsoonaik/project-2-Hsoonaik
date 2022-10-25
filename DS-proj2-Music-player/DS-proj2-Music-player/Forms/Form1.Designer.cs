@@ -54,6 +54,8 @@ namespace DS_proj2_Music_player
             this.ply_butt = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.merge_pnl = new System.Windows.Forms.Panel();
+            this.is_shuffle = new System.Windows.Forms.CheckBox();
+            this.set_merge_butt = new System.Windows.Forms.Button();
             this.check_play_list_list = new System.Windows.Forms.CheckedListBox();
             this.sort_selection_butt = new System.Windows.Forms.ComboBox();
             this.playlist_pnl = new System.Windows.Forms.Panel();
@@ -72,7 +74,6 @@ namespace DS_proj2_Music_player
             this.plylst_nme = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.set_merge_butt = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -420,6 +421,7 @@ namespace DS_proj2_Music_player
             // merge_pnl
             // 
             this.merge_pnl.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.merge_pnl.Controls.Add(this.is_shuffle);
             this.merge_pnl.Controls.Add(this.set_merge_butt);
             this.merge_pnl.Controls.Add(this.check_play_list_list);
             this.merge_pnl.Font = new System.Drawing.Font("Calibri Light", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
@@ -428,6 +430,36 @@ namespace DS_proj2_Music_player
             this.merge_pnl.Size = new System.Drawing.Size(550, 300);
             this.merge_pnl.TabIndex = 8;
             this.merge_pnl.Visible = false;
+            // 
+            // is_shuffle
+            // 
+            this.is_shuffle.AutoSize = true;
+            this.is_shuffle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.is_shuffle.Font = new System.Drawing.Font("Calibri Light", 20F);
+            this.is_shuffle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(76)))), ((int)(((byte)(41)))));
+            this.is_shuffle.Location = new System.Drawing.Point(165, 258);
+            this.is_shuffle.Name = "is_shuffle";
+            this.is_shuffle.Size = new System.Drawing.Size(135, 45);
+            this.is_shuffle.TabIndex = 9;
+            this.is_shuffle.Text = "Shuffle";
+            this.is_shuffle.UseVisualStyleBackColor = true;
+            // 
+            // set_merge_butt
+            // 
+            this.set_merge_butt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(76)))), ((int)(((byte)(41)))));
+            this.set_merge_butt.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.set_merge_butt.FlatAppearance.BorderSize = 0;
+            this.set_merge_butt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.set_merge_butt.Font = new System.Drawing.Font("Calibri", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.set_merge_butt.ForeColor = System.Drawing.Color.White;
+            this.set_merge_butt.Location = new System.Drawing.Point(2, 261);
+            this.set_merge_butt.Name = "set_merge_butt";
+            this.set_merge_butt.Size = new System.Drawing.Size(155, 39);
+            this.set_merge_butt.TabIndex = 8;
+            this.set_merge_butt.Text = "Merge";
+            this.set_merge_butt.UseVisualStyleBackColor = false;
+            this.set_merge_butt.Visible = false;
+            this.set_merge_butt.Click += new System.EventHandler(this.button2_Click);
             // 
             // check_play_list_list
             // 
@@ -585,6 +617,7 @@ namespace DS_proj2_Music_player
             this.delete_music_butt.Text = "Delete";
             this.delete_music_butt.UseVisualStyleBackColor = false;
             this.delete_music_butt.Visible = false;
+            this.delete_music_butt.Click += new System.EventHandler(this.delete_music_butt_Click);
             // 
             // chse_file_buttkk
             // 
@@ -672,23 +705,6 @@ namespace DS_proj2_Music_player
             this.openFileDialog1.FileName = "openFileDialog1";
             this.openFileDialog1.Title = "Select Music";
             // 
-            // set_merge_butt
-            // 
-            this.set_merge_butt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(76)))), ((int)(((byte)(41)))));
-            this.set_merge_butt.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.set_merge_butt.FlatAppearance.BorderSize = 0;
-            this.set_merge_butt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.set_merge_butt.Font = new System.Drawing.Font("Calibri", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.set_merge_butt.ForeColor = System.Drawing.Color.White;
-            this.set_merge_butt.Location = new System.Drawing.Point(5, 232);
-            this.set_merge_butt.Name = "set_merge_butt";
-            this.set_merge_butt.Size = new System.Drawing.Size(155, 39);
-            this.set_merge_butt.TabIndex = 8;
-            this.set_merge_butt.Text = "Add Music";
-            this.set_merge_butt.UseVisualStyleBackColor = false;
-            this.set_merge_butt.Visible = false;
-            this.set_merge_butt.Click += new System.EventHandler(this.button2_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -715,6 +731,7 @@ namespace DS_proj2_Music_player
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.merge_pnl.ResumeLayout(false);
+            this.merge_pnl.PerformLayout();
             this.playlist_pnl.ResumeLayout(false);
             this.liked_song_pnl.ResumeLayout(false);
             this.songs_pnl.ResumeLayout(false);
@@ -770,6 +787,7 @@ namespace DS_proj2_Music_player
     private System.Windows.Forms.Panel merge_pnl;
     private System.Windows.Forms.CheckedListBox check_play_list_list;
         private System.Windows.Forms.Button set_merge_butt;
+        private System.Windows.Forms.CheckBox is_shuffle;
     }
 }
 

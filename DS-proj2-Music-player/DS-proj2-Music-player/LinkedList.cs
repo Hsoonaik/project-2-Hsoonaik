@@ -5,6 +5,7 @@ using System.Runtime.Remoting.Lifetime;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
+using TagLib.Riff;
 
 namespace DS_proj2_Music_player
 {
@@ -83,6 +84,36 @@ namespace DS_proj2_Music_player
       }
     }
 
+    public void shuffle_merge(List<LinkedList<T>> lll)
+    {
+      List<T> All = new List<T>();
+      Random r = new Random();
+
+      for (int i = 0; i < lll.Count; i++)
+      {
+        Node<T> tmp = lll[i].head;
+        while (tmp != null)
+        {
+          All.Add(tmp.data);
+          tmp = tmp.Next;
+        }
+      } // add all linked lists in a list
+
+      int n = All.Count;
+      while (n > 0)
+      {
+        n--;
+        int k = r.Next(n + 1);
+        T value = All[k];
+        All[k] = All[n];
+        All[n] = value;
+      } // to change Order
+
+      for(int i = 0; i < All.Count; i++)
+      {
+        this.push_front(All[i]);
+      }
+    }
 
     public int getSize()
     {
