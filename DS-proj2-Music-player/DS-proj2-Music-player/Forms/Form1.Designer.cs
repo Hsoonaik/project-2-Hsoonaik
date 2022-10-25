@@ -69,6 +69,7 @@ namespace DS_proj2_Music_player
             this.liked_song_pnl = new System.Windows.Forms.Panel();
             this.liked_song_list = new System.Windows.Forms.ListBox();
             this.sort_selection_butt = new System.Windows.Forms.ComboBox();
+            this.delete_music_butt = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -482,6 +483,7 @@ namespace DS_proj2_Music_player
             this.plylist_list.Name = "plylist_list";
             this.plylist_list.Size = new System.Drawing.Size(550, 294);
             this.plylist_list.TabIndex = 0;
+            this.plylist_list.SelectedIndexChanged += new System.EventHandler(this.plylist_list_SelectedIndexChanged);
             this.plylist_list.DoubleClick += new System.EventHandler(this.plylist_list_DoubleClick_1);
             // 
             // back_butt
@@ -503,6 +505,7 @@ namespace DS_proj2_Music_player
             // 
             this.songs_pnl.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.songs_pnl.Controls.Add(this.songs_list);
+            this.songs_pnl.Controls.Add(this.delete_music_butt);
             this.songs_pnl.Controls.Add(this.chse_file_buttkk);
             this.songs_pnl.Font = new System.Drawing.Font("Calibri Light", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.songs_pnl.Location = new System.Drawing.Point(55, 96);
@@ -624,6 +627,23 @@ namespace DS_proj2_Music_player
             this.sort_selection_butt.Visible = false;
             this.sort_selection_butt.SelectedIndexChanged += new System.EventHandler(this.sort_selection_SelectedIndexChanged);
             // 
+            // delete_music_butt
+            // 
+            this.delete_music_butt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(76)))), ((int)(((byte)(41)))));
+            this.delete_music_butt.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.delete_music_butt.FlatAppearance.BorderSize = 0;
+            this.delete_music_butt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.delete_music_butt.Font = new System.Drawing.Font("Calibri", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.delete_music_butt.ForeColor = System.Drawing.Color.White;
+            this.delete_music_butt.Location = new System.Drawing.Point(163, 297);
+            this.delete_music_butt.Name = "delete_music_butt";
+            this.delete_music_butt.Size = new System.Drawing.Size(155, 39);
+            this.delete_music_butt.TabIndex = 7;
+            this.delete_music_butt.Text = "Delete";
+            this.delete_music_butt.UseVisualStyleBackColor = false;
+            this.delete_music_butt.Visible = false;
+            this.delete_music_butt.Click += new System.EventHandler(this.delete_music_butt_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -700,6 +720,7 @@ namespace DS_proj2_Music_player
     private System.Windows.Forms.Panel liked_song_pnl;
     private System.Windows.Forms.ListBox liked_song_list;
     private System.Windows.Forms.ComboBox sort_selection_butt;
+    private System.Windows.Forms.Button delete_music_butt;
   }
 }
 

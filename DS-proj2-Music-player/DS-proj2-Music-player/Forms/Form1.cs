@@ -318,6 +318,12 @@ namespace DS_proj2_Music_player
 
     private void Form1_Load(object sender, EventArgs e)
     {
+      //List<Music> l = new List<Music>();
+      //l.Add(new Music { TrackName = "sadf", ArtistName = "asff" });
+      //l.Add(new Music { TrackName = "sadf", ArtistName = "asff" });
+
+      //var q = l.Select((i) => i.ArtistName);
+      //Console.WriteLine("      ===> " + q.ToList()[0]);
 
       //TagLib.File file = TagLib.File.Create(new FileAbstraction("C:\\Users\\Padidar\\Downloads\\Music\\lera_lynn_-_my_least_favorite_life.mp3"));
       //String title = file.Tag.Title;
@@ -339,6 +345,7 @@ namespace DS_proj2_Music_player
 
     private void plylst_butt_Click(object sender, EventArgs e)
     {
+      sort_selection_butt.Hide();
       b_click(1);
       music_detail_container.Hide();
       liked_song_pnl.Hide();
@@ -369,6 +376,7 @@ namespace DS_proj2_Music_player
     private void add_butt_Click(object sender, EventArgs e)
     {
       liked_song_pnl.Hide();
+      sort_selection_butt.Hide();
 
       back_butt.Hide();
       title_lbl.Text = "";
@@ -383,6 +391,8 @@ namespace DS_proj2_Music_player
 
     private void liked_butt_Click(object sender, EventArgs e)
     {
+      sort_selection_butt.Hide();
+
       add_playlist_pnl.Hide();
       songs_pnl.Hide();
       playlist_pnl.Hide();
@@ -408,6 +418,7 @@ namespace DS_proj2_Music_player
     private void merge_butt_Click(object sender, EventArgs e)
     {
       liked_song_pnl.Hide();
+      sort_selection_butt.Hide();
 
       b_click(4);
       back_butt.Hide();
@@ -727,6 +738,35 @@ namespace DS_proj2_Music_player
 
     }
 
+    private void delete_music_butt_Click(object sender, EventArgs e)
+    {
+      String tmp_name = songs_list.SelectedItem.ToString();
+      Console.WriteLine(tmp_name);
+      int start_str = tmp_name.IndexOf('-') + 2; // get the index arter <num - >
+      tmp_name = songs_list.SelectedItem.ToString().Substring(start_str);
+      if (tmp_name.Length >= 18)
+        tmp_name = tmp_name.Substring(0, tmp_name.Length - 3);
+      Console.WriteLine(tmp_name);
+
+      Node <Music> tmp = CurrentPlayList.Musics.head;
+      while (tmp != null)
+      {
+        if (tmp.data.TrackName == tmp_name || tmp.data.TrackName.Contains(tmp_name))
+        {
+          CurrentPlayList.Musics.remove_by_value(tmp.data);
+          break;
+        }
+        tmp = tmp.Next;
+      }
+
+      add_to_song_list();
+    }
+
+    private void plylist_list_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
+    }
+
     private void ply_butt_Click(object sender, EventArgs e)
     {
       Console.WriteLine(CurrenMusic.Path);
@@ -756,7 +796,7 @@ namespace DS_proj2_Music_player
 
       
       chse_file_buttkk.Show();
-
+      delete_music_butt.Show();
       sort_selection_butt.Show();
       back_butt.Show();
       bck_butt_val = 0;// for playlist
