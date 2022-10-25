@@ -288,8 +288,21 @@ namespace DS_proj2_Music_player
 
       P = sorted_linked_list;
     }
+    void add_play_lists()
+    {
+      Node<PlayList> tmp;
+      tmp = Datas.PList.head;
+      while (tmp != null)
+      {
+        try
+        {
+          plylist_list.Items.Add(tmp.data.Name);
+          tmp = tmp.Next;
+        }
+        catch { break; }
 
-
+      }
+    }
 
 
 
@@ -345,6 +358,7 @@ namespace DS_proj2_Music_player
 
     private void plylst_butt_Click(object sender, EventArgs e)
     {
+      merge_pnl.Hide();
       sort_selection_butt.Hide();
       b_click(1);
       music_detail_container.Hide();
@@ -355,9 +369,11 @@ namespace DS_proj2_Music_player
       plylist_list.Show();
       plylist_list.Items.Clear();
 
+      //add_play_lists();
+
       Node<PlayList> tmp;
       tmp = Datas.PList.head;
-      while(tmp != null)
+      while (tmp != null)
       {
         try
         {
@@ -365,7 +381,7 @@ namespace DS_proj2_Music_player
           tmp = tmp.Next;
         }
         catch { break; }
-        
+
       }
 
       plylist_list.Items.Add("Local Musics");
@@ -375,6 +391,7 @@ namespace DS_proj2_Music_player
 
     private void add_butt_Click(object sender, EventArgs e)
     {
+      merge_pnl.Hide();
       liked_song_pnl.Hide();
       sort_selection_butt.Hide();
 
@@ -391,6 +408,7 @@ namespace DS_proj2_Music_player
 
     private void liked_butt_Click(object sender, EventArgs e)
     {
+      merge_pnl.Hide();
       sort_selection_butt.Hide();
 
       add_playlist_pnl.Hide();
@@ -417,12 +435,29 @@ namespace DS_proj2_Music_player
 
     private void merge_butt_Click(object sender, EventArgs e)
     {
+      set_merge_butt.Show();
+      check_play_list_list.Items.Clear();
       liked_song_pnl.Hide();
       sort_selection_butt.Hide();
-
+      playlist_pnl.Hide();
       b_click(4);
       back_butt.Hide();
       music_detail_container.Hide();
+      merge_pnl.Show();
+
+      Node<PlayList> tmp;
+      tmp = Datas.PList.head;
+      while (tmp != null)
+      {
+        try
+        {
+          check_play_list_list.Items.Add(tmp.data.Name);
+          tmp = tmp.Next;
+        }
+        catch { break; }
+
+      }
+      check_play_list_list.Items.Add("Local Musics");
 
     }
 
@@ -738,33 +773,58 @@ namespace DS_proj2_Music_player
 
     }
 
-    private void delete_music_butt_Click(object sender, EventArgs e)
+    private void check_play_list_list_DoubleClick(object sender, EventArgs e)
     {
-      String tmp_name = songs_list.SelectedItem.ToString();
-      Console.WriteLine(tmp_name);
-      int start_str = tmp_name.IndexOf('-') + 2; // get the index arter <num - >
-      tmp_name = songs_list.SelectedItem.ToString().Substring(start_str);
-      if (tmp_name.Length >= 18)
-        tmp_name = tmp_name.Substring(0, tmp_name.Length - 3);
-      Console.WriteLine(tmp_name);
+      
 
-      Node <Music> tmp = CurrentPlayList.Musics.head;
-      while (tmp != null)
-      {
-        if (tmp.data.TrackName == tmp_name || tmp.data.TrackName.Contains(tmp_name))
-        {
-          CurrentPlayList.Musics.remove_by_value(tmp.data);
-          break;
-        }
-        tmp = tmp.Next;
-      }
-
-      add_to_song_list();
     }
 
-    private void plylist_list_SelectedIndexChanged(object sender, EventArgs e)
+    private void check_play_list_list_SelectedIndexChanged(object sender, EventArgs e)
     {
 
+    }
+
+    private void button2_Click(object sender, EventArgs e)
+    {
+      LinkedList<PlayList> CheckedList = new LinkedList<PlayList>();
+      for (int i = 0; i < check_play_list_list.Items.Count; i++)
+      {
+
+        if (!check_play_list_list.GetItemChecked(i))
+          continue;
+
+        Node<PlayList> tmp = Datas.PList.head;
+
+        while (tmp != null)
+        {
+          if (tmp.data.Name == check_play_list_list.Items[i].ToString())
+          {
+            CheckedList.push_front(tmp.data);
+            break;
+          }
+          else if (check_play_list_list.Items[i].ToString() == "Local Musics")
+          {
+            CheckedList.push_front(LocalMusics);
+            break;
+          }
+          tmp = tmp.Next;
+        }
+      }
+
+      LinkedList<Music> NewLinkedList = new LinkedList<Music>();
+      if (check_play_list_list.CheckedItems.Count == 2)
+      {
+        PlayList Result = new PlayList();
+        PlayList item1;
+        PlayList item2;
+
+        item1 = CheckedList.head.data;
+        item2 = CheckedList.head.Next.data;
+
+        Result.Musics.merge(item1.Musics, item2.Musics);
+        Result.Name = "New_" + item1.Name + " _" + item2.Name;
+        Datas.PList.push_front(Result);
+      }
     }
 
     private void ply_butt_Click(object sender, EventArgs e)

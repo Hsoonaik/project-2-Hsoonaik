@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Lifetime;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
@@ -67,7 +68,20 @@ namespace DS_proj2_Music_player
       return tmp.data;
     }
 
-
+    public void merge(LinkedList<T> a , LinkedList<T> b)
+    {
+      
+      while(a.head != null)
+      {
+        this.push_front(a.head.data);
+        a.head = a.head.Next;
+      }
+      while(b.head != null)
+      {
+        this.push_front(b.head.data);
+        b.head = b.head.Next;
+      }
+    }
     public int getSize()
     {
       return size;

@@ -53,33 +53,37 @@ namespace DS_proj2_Music_player
             this.pre_butt = new System.Windows.Forms.Label();
             this.ply_butt = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.add_playlist_pnl = new System.Windows.Forms.Panel();
-            this.plylst_nme = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.title_lbl = new System.Windows.Forms.Label();
+            this.merge_pnl = new System.Windows.Forms.Panel();
+            this.check_play_list_list = new System.Windows.Forms.CheckedListBox();
+            this.sort_selection_butt = new System.Windows.Forms.ComboBox();
             this.playlist_pnl = new System.Windows.Forms.Panel();
             this.plylist_list = new System.Windows.Forms.ListBox();
+            this.liked_song_pnl = new System.Windows.Forms.Panel();
+            this.liked_song_list = new System.Windows.Forms.ListBox();
+            this.title_lbl = new System.Windows.Forms.Label();
             this.back_butt = new System.Windows.Forms.Label();
             this.songs_pnl = new System.Windows.Forms.Panel();
             this.songs_list = new System.Windows.Forms.ListBox();
+            this.delete_music_butt = new System.Windows.Forms.Button();
             this.chse_file_buttkk = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.add_playlist_pnl = new System.Windows.Forms.Panel();
+            this.plylst_nme = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.liked_song_pnl = new System.Windows.Forms.Panel();
-            this.liked_song_list = new System.Windows.Forms.ListBox();
-            this.sort_selection_butt = new System.Windows.Forms.ComboBox();
-            this.delete_music_butt = new System.Windows.Forms.Button();
+            this.set_merge_butt = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.music_detail_container.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.add_playlist_pnl.SuspendLayout();
+            this.merge_pnl.SuspendLayout();
             this.playlist_pnl.SuspendLayout();
-            this.songs_pnl.SuspendLayout();
             this.liked_song_pnl.SuspendLayout();
+            this.songs_pnl.SuspendLayout();
+            this.add_playlist_pnl.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel3
@@ -397,6 +401,7 @@ namespace DS_proj2_Music_player
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.merge_pnl);
             this.panel4.Controls.Add(this.sort_selection_butt);
             this.panel4.Controls.Add(this.playlist_pnl);
             this.panel4.Controls.Add(this.liked_song_pnl);
@@ -412,52 +417,50 @@ namespace DS_proj2_Music_player
             this.panel4.Size = new System.Drawing.Size(650, 439);
             this.panel4.TabIndex = 3;
             // 
-            // add_playlist_pnl
+            // merge_pnl
             // 
-            this.add_playlist_pnl.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.add_playlist_pnl.Controls.Add(this.plylst_nme);
-            this.add_playlist_pnl.Controls.Add(this.button1);
-            this.add_playlist_pnl.Font = new System.Drawing.Font("Calibri Light", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.add_playlist_pnl.Location = new System.Drawing.Point(50, 96);
-            this.add_playlist_pnl.Name = "add_playlist_pnl";
-            this.add_playlist_pnl.Size = new System.Drawing.Size(550, 300);
-            this.add_playlist_pnl.TabIndex = 2;
-            this.add_playlist_pnl.Visible = false;
+            this.merge_pnl.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.merge_pnl.Controls.Add(this.set_merge_butt);
+            this.merge_pnl.Controls.Add(this.check_play_list_list);
+            this.merge_pnl.Font = new System.Drawing.Font("Calibri Light", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.merge_pnl.Location = new System.Drawing.Point(53, 93);
+            this.merge_pnl.Name = "merge_pnl";
+            this.merge_pnl.Size = new System.Drawing.Size(550, 300);
+            this.merge_pnl.TabIndex = 8;
+            this.merge_pnl.Visible = false;
             // 
-            // plylst_nme
+            // check_play_list_list
             // 
-            this.plylst_nme.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.plylst_nme.Font = new System.Drawing.Font("Calibri Light", 26F);
-            this.plylst_nme.Location = new System.Drawing.Point(95, 94);
-            this.plylst_nme.Name = "plylst_nme";
-            this.plylst_nme.Size = new System.Drawing.Size(360, 60);
-            this.plylst_nme.TabIndex = 0;
+            this.check_play_list_list.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(32)))), ((int)(((byte)(50)))));
+            this.check_play_list_list.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.check_play_list_list.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(76)))), ((int)(((byte)(41)))));
+            this.check_play_list_list.FormattingEnabled = true;
+            this.check_play_list_list.Location = new System.Drawing.Point(0, 0);
+            this.check_play_list_list.Name = "check_play_list_list";
+            this.check_play_list_list.Size = new System.Drawing.Size(547, 300);
+            this.check_play_list_list.TabIndex = 0;
+            this.check_play_list_list.SelectedIndexChanged += new System.EventHandler(this.check_play_list_list_SelectedIndexChanged);
+            this.check_play_list_list.DoubleClick += new System.EventHandler(this.check_play_list_list_DoubleClick);
             // 
-            // button1
+            // sort_selection_butt
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(76)))), ((int)(((byte)(41)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Calibri", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(145, 188);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(260, 50);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Creat playlist";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // title_lbl
-            // 
-            this.title_lbl.AutoSize = true;
-            this.title_lbl.Font = new System.Drawing.Font("Calibri", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.title_lbl.ForeColor = System.Drawing.Color.White;
-            this.title_lbl.Location = new System.Drawing.Point(6, 9);
-            this.title_lbl.Name = "title_lbl";
-            this.title_lbl.Size = new System.Drawing.Size(148, 73);
-            this.title_lbl.TabIndex = 5;
-            this.title_lbl.Text = "Test!";
+            this.sort_selection_butt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(76)))), ((int)(((byte)(41)))));
+            this.sort_selection_butt.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.sort_selection_butt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.sort_selection_butt.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.sort_selection_butt.ForeColor = System.Drawing.Color.White;
+            this.sort_selection_butt.FormattingEnabled = true;
+            this.sort_selection_butt.Items.AddRange(new object[] {
+            "Track Name",
+            "Artist Name",
+            "Release Date"});
+            this.sort_selection_butt.Location = new System.Drawing.Point(512, 57);
+            this.sort_selection_butt.Name = "sort_selection_butt";
+            this.sort_selection_butt.Size = new System.Drawing.Size(125, 26);
+            this.sort_selection_butt.TabIndex = 7;
+            this.sort_selection_butt.Text = "Sort By";
+            this.sort_selection_butt.Visible = false;
+            this.sort_selection_butt.SelectedIndexChanged += new System.EventHandler(this.sort_selection_SelectedIndexChanged);
             // 
             // playlist_pnl
             // 
@@ -483,8 +486,44 @@ namespace DS_proj2_Music_player
             this.plylist_list.Name = "plylist_list";
             this.plylist_list.Size = new System.Drawing.Size(550, 294);
             this.plylist_list.TabIndex = 0;
-            this.plylist_list.SelectedIndexChanged += new System.EventHandler(this.plylist_list_SelectedIndexChanged);
             this.plylist_list.DoubleClick += new System.EventHandler(this.plylist_list_DoubleClick_1);
+            // 
+            // liked_song_pnl
+            // 
+            this.liked_song_pnl.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.liked_song_pnl.Controls.Add(this.liked_song_list);
+            this.liked_song_pnl.Font = new System.Drawing.Font("Calibri Light", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.liked_song_pnl.Location = new System.Drawing.Point(55, 99);
+            this.liked_song_pnl.Name = "liked_song_pnl";
+            this.liked_song_pnl.Size = new System.Drawing.Size(550, 300);
+            this.liked_song_pnl.TabIndex = 5;
+            this.liked_song_pnl.Visible = false;
+            // 
+            // liked_song_list
+            // 
+            this.liked_song_list.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(32)))), ((int)(((byte)(50)))));
+            this.liked_song_list.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.liked_song_list.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.liked_song_list.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.liked_song_list.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(76)))), ((int)(((byte)(41)))));
+            this.liked_song_list.FormattingEnabled = true;
+            this.liked_song_list.ItemHeight = 49;
+            this.liked_song_list.Location = new System.Drawing.Point(3, 0);
+            this.liked_song_list.Name = "liked_song_list";
+            this.liked_song_list.Size = new System.Drawing.Size(550, 294);
+            this.liked_song_list.TabIndex = 0;
+            this.liked_song_list.DoubleClick += new System.EventHandler(this.liked_song_list_DoubleClick);
+            // 
+            // title_lbl
+            // 
+            this.title_lbl.AutoSize = true;
+            this.title_lbl.Font = new System.Drawing.Font("Calibri", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.title_lbl.ForeColor = System.Drawing.Color.White;
+            this.title_lbl.Location = new System.Drawing.Point(6, 9);
+            this.title_lbl.Name = "title_lbl";
+            this.title_lbl.Size = new System.Drawing.Size(148, 73);
+            this.title_lbl.TabIndex = 5;
+            this.title_lbl.Text = "Test!";
             // 
             // back_butt
             // 
@@ -531,6 +570,22 @@ namespace DS_proj2_Music_player
             this.songs_list.SelectedIndexChanged += new System.EventHandler(this.songs_list_SelectedIndexChanged);
             this.songs_list.DoubleClick += new System.EventHandler(this.songs_list_DoubleClick);
             // 
+            // delete_music_butt
+            // 
+            this.delete_music_butt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(76)))), ((int)(((byte)(41)))));
+            this.delete_music_butt.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.delete_music_butt.FlatAppearance.BorderSize = 0;
+            this.delete_music_butt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.delete_music_butt.Font = new System.Drawing.Font("Calibri", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.delete_music_butt.ForeColor = System.Drawing.Color.White;
+            this.delete_music_butt.Location = new System.Drawing.Point(163, 297);
+            this.delete_music_butt.Name = "delete_music_butt";
+            this.delete_music_butt.Size = new System.Drawing.Size(155, 39);
+            this.delete_music_butt.TabIndex = 7;
+            this.delete_music_butt.Text = "Delete";
+            this.delete_music_butt.UseVisualStyleBackColor = false;
+            this.delete_music_butt.Visible = false;
+            // 
             // chse_file_buttkk
             // 
             this.chse_file_buttkk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(76)))), ((int)(((byte)(41)))));
@@ -576,73 +631,63 @@ namespace DS_proj2_Music_player
             this.label1.Text = "X";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
+            // add_playlist_pnl
+            // 
+            this.add_playlist_pnl.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.add_playlist_pnl.Controls.Add(this.plylst_nme);
+            this.add_playlist_pnl.Controls.Add(this.button1);
+            this.add_playlist_pnl.Font = new System.Drawing.Font("Calibri Light", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.add_playlist_pnl.Location = new System.Drawing.Point(50, 96);
+            this.add_playlist_pnl.Name = "add_playlist_pnl";
+            this.add_playlist_pnl.Size = new System.Drawing.Size(550, 300);
+            this.add_playlist_pnl.TabIndex = 2;
+            this.add_playlist_pnl.Visible = false;
+            // 
+            // plylst_nme
+            // 
+            this.plylst_nme.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.plylst_nme.Font = new System.Drawing.Font("Calibri Light", 26F);
+            this.plylst_nme.Location = new System.Drawing.Point(95, 94);
+            this.plylst_nme.Name = "plylst_nme";
+            this.plylst_nme.Size = new System.Drawing.Size(360, 60);
+            this.plylst_nme.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(76)))), ((int)(((byte)(41)))));
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Calibri", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(145, 188);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(260, 50);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Creat playlist";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             this.openFileDialog1.Title = "Select Music";
             // 
-            // liked_song_pnl
+            // set_merge_butt
             // 
-            this.liked_song_pnl.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.liked_song_pnl.Controls.Add(this.liked_song_list);
-            this.liked_song_pnl.Font = new System.Drawing.Font("Calibri Light", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.liked_song_pnl.Location = new System.Drawing.Point(55, 99);
-            this.liked_song_pnl.Name = "liked_song_pnl";
-            this.liked_song_pnl.Size = new System.Drawing.Size(550, 300);
-            this.liked_song_pnl.TabIndex = 5;
-            this.liked_song_pnl.Visible = false;
-            // 
-            // liked_song_list
-            // 
-            this.liked_song_list.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(32)))), ((int)(((byte)(50)))));
-            this.liked_song_list.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.liked_song_list.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.liked_song_list.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.liked_song_list.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(76)))), ((int)(((byte)(41)))));
-            this.liked_song_list.FormattingEnabled = true;
-            this.liked_song_list.ItemHeight = 49;
-            this.liked_song_list.Location = new System.Drawing.Point(3, 0);
-            this.liked_song_list.Name = "liked_song_list";
-            this.liked_song_list.Size = new System.Drawing.Size(550, 294);
-            this.liked_song_list.TabIndex = 0;
-            this.liked_song_list.DoubleClick += new System.EventHandler(this.liked_song_list_DoubleClick);
-            // 
-            // sort_selection_butt
-            // 
-            this.sort_selection_butt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(76)))), ((int)(((byte)(41)))));
-            this.sort_selection_butt.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.sort_selection_butt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.sort_selection_butt.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.sort_selection_butt.ForeColor = System.Drawing.Color.White;
-            this.sort_selection_butt.FormattingEnabled = true;
-            this.sort_selection_butt.Items.AddRange(new object[] {
-            "Track Name",
-            "Artist Name",
-            "Release Date"});
-            this.sort_selection_butt.Location = new System.Drawing.Point(512, 57);
-            this.sort_selection_butt.Name = "sort_selection_butt";
-            this.sort_selection_butt.Size = new System.Drawing.Size(125, 26);
-            this.sort_selection_butt.TabIndex = 7;
-            this.sort_selection_butt.Text = "Sort By";
-            this.sort_selection_butt.Visible = false;
-            this.sort_selection_butt.SelectedIndexChanged += new System.EventHandler(this.sort_selection_SelectedIndexChanged);
-            // 
-            // delete_music_butt
-            // 
-            this.delete_music_butt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(76)))), ((int)(((byte)(41)))));
-            this.delete_music_butt.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.delete_music_butt.FlatAppearance.BorderSize = 0;
-            this.delete_music_butt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.delete_music_butt.Font = new System.Drawing.Font("Calibri", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.delete_music_butt.ForeColor = System.Drawing.Color.White;
-            this.delete_music_butt.Location = new System.Drawing.Point(163, 297);
-            this.delete_music_butt.Name = "delete_music_butt";
-            this.delete_music_butt.Size = new System.Drawing.Size(155, 39);
-            this.delete_music_butt.TabIndex = 7;
-            this.delete_music_butt.Text = "Delete";
-            this.delete_music_butt.UseVisualStyleBackColor = false;
-            this.delete_music_butt.Visible = false;
-            this.delete_music_butt.Click += new System.EventHandler(this.delete_music_butt_Click);
+            this.set_merge_butt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(76)))), ((int)(((byte)(41)))));
+            this.set_merge_butt.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.set_merge_butt.FlatAppearance.BorderSize = 0;
+            this.set_merge_butt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.set_merge_butt.Font = new System.Drawing.Font("Calibri", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.set_merge_butt.ForeColor = System.Drawing.Color.White;
+            this.set_merge_butt.Location = new System.Drawing.Point(5, 232);
+            this.set_merge_butt.Name = "set_merge_butt";
+            this.set_merge_butt.Size = new System.Drawing.Size(155, 39);
+            this.set_merge_butt.TabIndex = 8;
+            this.set_merge_butt.Text = "Add Music";
+            this.set_merge_butt.UseVisualStyleBackColor = false;
+            this.set_merge_butt.Visible = false;
+            this.set_merge_butt.Click += new System.EventHandler(this.button2_Click);
             // 
             // MainForm
             // 
@@ -669,11 +714,12 @@ namespace DS_proj2_Music_player
             this.music_detail_container.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.merge_pnl.ResumeLayout(false);
+            this.playlist_pnl.ResumeLayout(false);
+            this.liked_song_pnl.ResumeLayout(false);
+            this.songs_pnl.ResumeLayout(false);
             this.add_playlist_pnl.ResumeLayout(false);
             this.add_playlist_pnl.PerformLayout();
-            this.playlist_pnl.ResumeLayout(false);
-            this.songs_pnl.ResumeLayout(false);
-            this.liked_song_pnl.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -717,10 +763,13 @@ namespace DS_proj2_Music_player
     private System.Windows.Forms.Panel music_detail_container;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
     private System.Windows.Forms.Label like_butt;
-    private System.Windows.Forms.Panel liked_song_pnl;
-    private System.Windows.Forms.ListBox liked_song_list;
     private System.Windows.Forms.ComboBox sort_selection_butt;
     private System.Windows.Forms.Button delete_music_butt;
-  }
+    private System.Windows.Forms.Panel liked_song_pnl;
+    private System.Windows.Forms.ListBox liked_song_list;
+    private System.Windows.Forms.Panel merge_pnl;
+    private System.Windows.Forms.CheckedListBox check_play_list_list;
+        private System.Windows.Forms.Button set_merge_butt;
+    }
 }
 
