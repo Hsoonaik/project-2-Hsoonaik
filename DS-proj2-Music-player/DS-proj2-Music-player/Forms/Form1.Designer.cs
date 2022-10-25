@@ -427,7 +427,7 @@ namespace DS_proj2_Music_player
             this.merge_pnl.Font = new System.Drawing.Font("Calibri Light", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.merge_pnl.Location = new System.Drawing.Point(53, 93);
             this.merge_pnl.Name = "merge_pnl";
-            this.merge_pnl.Size = new System.Drawing.Size(550, 300);
+            this.merge_pnl.Size = new System.Drawing.Size(550, 340);
             this.merge_pnl.TabIndex = 8;
             this.merge_pnl.Visible = false;
             // 
@@ -437,7 +437,7 @@ namespace DS_proj2_Music_player
             this.is_shuffle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.is_shuffle.Font = new System.Drawing.Font("Calibri Light", 20F);
             this.is_shuffle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(76)))), ((int)(((byte)(41)))));
-            this.is_shuffle.Location = new System.Drawing.Point(165, 258);
+            this.is_shuffle.Location = new System.Drawing.Point(165, 290);
             this.is_shuffle.Name = "is_shuffle";
             this.is_shuffle.Size = new System.Drawing.Size(135, 45);
             this.is_shuffle.TabIndex = 9;
@@ -452,9 +452,9 @@ namespace DS_proj2_Music_player
             this.set_merge_butt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.set_merge_butt.Font = new System.Drawing.Font("Calibri", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.set_merge_butt.ForeColor = System.Drawing.Color.White;
-            this.set_merge_butt.Location = new System.Drawing.Point(2, 261);
+            this.set_merge_butt.Location = new System.Drawing.Point(0, 290);
             this.set_merge_butt.Name = "set_merge_butt";
-            this.set_merge_butt.Size = new System.Drawing.Size(155, 39);
+            this.set_merge_butt.Size = new System.Drawing.Size(155, 45);
             this.set_merge_butt.TabIndex = 8;
             this.set_merge_butt.Text = "Merge";
             this.set_merge_butt.UseVisualStyleBackColor = false;

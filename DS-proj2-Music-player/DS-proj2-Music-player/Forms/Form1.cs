@@ -381,8 +381,8 @@ namespace DS_proj2_Music_player
       merge_pnl.Hide();
       sort_selection_butt.Hide();
       b_click(1);
-      music_detail_container.Hide();
-      liked_song_pnl.Hide();
+      if (trck_nme_lbl.Text == "Track_Name")
+        music_detail_container.Hide(); liked_song_pnl.Hide();
       title_lbl.Text = "";
       add_playlist_pnl.Hide();
       playlist_pnl.Show();
@@ -417,7 +417,8 @@ namespace DS_proj2_Music_player
 
       back_butt.Hide();
       title_lbl.Text = "";
-      music_detail_container.Hide();
+      if (trck_nme_lbl.Text == "Track_Name") 
+        music_detail_container.Hide();
 
       b_click(2);
       playlist_pnl.Hide();
@@ -437,8 +438,8 @@ namespace DS_proj2_Music_player
       liked_song_list.Items.Clear();
       b_click(3);
       back_butt.Hide();
-      music_detail_container.Hide();
-      liked_song_list.Show();
+      if (trck_nme_lbl.Text == "Track_Name")
+        music_detail_container.Hide(); liked_song_list.Show();
       liked_song_pnl.Show();
       title_lbl.Text = "";
 
@@ -455,6 +456,7 @@ namespace DS_proj2_Music_player
 
     private void merge_butt_Click(object sender, EventArgs e)
     {
+      songs_pnl.Hide();
       set_merge_butt.Show();
       check_play_list_list.Items.Clear();
       liked_song_pnl.Hide();
@@ -462,7 +464,8 @@ namespace DS_proj2_Music_player
       playlist_pnl.Hide();
       b_click(4);
       back_butt.Hide();
-      music_detail_container.Hide();
+      if (trck_nme_lbl.Text == "Track_Name")
+        music_detail_container.Hide();
       merge_pnl.Show();
 
       Node<PlayList> tmp;
@@ -609,10 +612,13 @@ namespace DS_proj2_Music_player
 
     private void songs_list_DoubleClick(object sender, EventArgs e)
     {
+      wplayer.controls.stop();
       if (songs_list.SelectedItem == null)
-        songs_list.SelectedIndex = 0; // to avoid click without selectiong
-      like_butt.Text = "❤";
+        songs_list.SelectedIndex = 0; // t
+                                      // o avoid click without selectiong
+      wplayer.controls.stop();
       ply_butt.Text = "▶";
+      like_butt.Text = "❤";
       music_play_butt = -1;
       Node<Music> tmp = CurrentPlayList.Musics.head;
       String tmp_name = songs_list.SelectedItem.ToString();
@@ -631,8 +637,8 @@ namespace DS_proj2_Music_player
           CurrenMusic = tmp.data; // to selected music can be reconized!
 
           string tmpName = tmp.data.TrackName;
-          if (tmpName.Length > 18)
-            tmpName = tmpName.Substring(0, 18) + "...";
+          if (tmpName.Length > 12)
+            tmpName = tmpName.Substring(0, 12) + "...";
           Console.WriteLine(tmp.data.TrackName);
           trck_nme_lbl.Text = tmpName; // tmp.data.TrackName
           artst_nme_lbl.Text = tmp.data.ArtistName;
@@ -688,8 +694,33 @@ namespace DS_proj2_Music_player
 
     private void nxt_butt_Click(object sender, EventArgs e)
     {
-      MessageF msg = new MessageF("Will be available in next versions!", 0);
-      msg.Show();
+      //MessageF msg = new MessageF("Will be available in next versions!", 0);
+      //msg.Show();
+
+      Node<Music> tmp = CurrentPlayList.Musics.head;
+      Random random = new Random();
+      int r = random.Next(CurrentPlayList.Musics.getSize());
+      for (int i = 0; i < r - 1; i++)
+      {
+        tmp = tmp.Next;
+      }
+      string tmpName = tmp.data.TrackName;
+      if (tmpName.Length > 12)
+        tmpName = tmpName.Substring(0, 12) + "...";
+      Console.WriteLine(tmp.data.TrackName);
+      trck_nme_lbl.Text = tmpName; // tmp.data.TrackName
+      artst_nme_lbl.Text = tmp.data.ArtistName;
+      rls_dte_lbl.Text = tmp.data.ReleaseDate;
+      gnr_nme_lbl.Text = tmp.data.Genre;
+      len_lbl.Text = tmp.data.Len;
+      tpc_lbl.Text = tmp.data.Topic;
+
+      if (tmp.data.isLiked)
+        like_butt.Text = "♥";
+      else
+        like_butt.Text = "❤";
+
+      music_detail_container.Show();
     }
 
     private void pre_butt_Click(object sender, EventArgs e)
@@ -725,7 +756,11 @@ namespace DS_proj2_Music_player
 
     private void liked_song_list_DoubleClick(object sender, EventArgs e)
     {
-      Node<Music> tmp = AllMusics.head;
+      
+      wplayer.controls.stop();
+      ply_butt.Text = "▶";
+
+      Node<Music> tmp = LikedMusics.head;
       String tmp_name = liked_song_list.SelectedItem.ToString();
       Console.WriteLine(tmp_name);
       int start_str = tmp_name.IndexOf('-') + 2; // get the index arter <num - >
