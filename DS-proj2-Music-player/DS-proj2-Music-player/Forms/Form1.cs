@@ -303,15 +303,33 @@ namespace DS_proj2_Music_player
 
       }
     }
+    void remove_repited(ref LinkedList<Music> P)
+    {
+      Node<Music> tmp1 = P.head;
+      Node<Music> tmp2 = P.head.Next;
+
+      while (tmp1 != null)
+      {
+        while (tmp2 != null)
+        {
+          if (tmp1.data.TrackName == tmp2.data.TrackName)
+          {
+            P.remove_by_value(tmp2.data);
+            tmp2.data.TrackName = "!@#$";
+          }
+          tmp2 = tmp2.Next;
+        }
+        tmp1 = tmp1.Next;
+      }
+    }
 
 
 
 
 
 
-
-      #region About Form
-      public MainForm()
+    #region About Form
+    public MainForm()
     {
 
 
@@ -822,6 +840,7 @@ namespace DS_proj2_Music_player
         item2 = CheckedList.head.Next.data;
 
         Result.Musics.merge(item1.Musics, item2.Musics);
+        remove_repited(ref Result.Musics);
         Result.Name = "New_" + item1.Name + " _" + item2.Name;
         Datas.PList.push_front(Result);
       }
