@@ -74,6 +74,8 @@ namespace DS_proj2_Music_player
             this.plylst_nme = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.filtter_butt = new System.Windows.Forms.Button();
+            this.filter_txt = new System.Windows.Forms.TextBox();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -402,16 +404,16 @@ namespace DS_proj2_Music_player
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.playlist_pnl);
+            this.panel4.Controls.Add(this.add_playlist_pnl);
             this.panel4.Controls.Add(this.merge_pnl);
             this.panel4.Controls.Add(this.sort_selection_butt);
-            this.panel4.Controls.Add(this.playlist_pnl);
             this.panel4.Controls.Add(this.liked_song_pnl);
             this.panel4.Controls.Add(this.title_lbl);
             this.panel4.Controls.Add(this.back_butt);
             this.panel4.Controls.Add(this.songs_pnl);
             this.panel4.Controls.Add(this.label2);
             this.panel4.Controls.Add(this.label1);
-            this.panel4.Controls.Add(this.add_playlist_pnl);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(200, 0);
             this.panel4.Name = "panel4";
@@ -497,6 +499,8 @@ namespace DS_proj2_Music_player
             // playlist_pnl
             // 
             this.playlist_pnl.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.playlist_pnl.Controls.Add(this.filter_txt);
+            this.playlist_pnl.Controls.Add(this.filtter_butt);
             this.playlist_pnl.Controls.Add(this.plylist_list);
             this.playlist_pnl.Font = new System.Drawing.Font("Calibri Light", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.playlist_pnl.Location = new System.Drawing.Point(55, 96);
@@ -705,6 +709,31 @@ namespace DS_proj2_Music_player
             this.openFileDialog1.FileName = "openFileDialog1";
             this.openFileDialog1.Title = "Select Music";
             // 
+            // filtter_butt
+            // 
+            this.filtter_butt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(76)))), ((int)(((byte)(41)))));
+            this.filtter_butt.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.filtter_butt.FlatAppearance.BorderSize = 0;
+            this.filtter_butt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.filtter_butt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.filtter_butt.ForeColor = System.Drawing.Color.White;
+            this.filtter_butt.Location = new System.Drawing.Point(378, 257);
+            this.filtter_butt.Name = "filtter_butt";
+            this.filtter_butt.Size = new System.Drawing.Size(150, 38);
+            this.filtter_butt.TabIndex = 9;
+            this.filtter_butt.Text = "filtter by genre";
+            this.filtter_butt.UseVisualStyleBackColor = false;
+            this.filtter_butt.Click += new System.EventHandler(this.filtter_butt_Click);
+            // 
+            // filter_txt
+            // 
+            this.filter_txt.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.filter_txt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.filter_txt.Location = new System.Drawing.Point(377, 219);
+            this.filter_txt.Name = "filter_txt";
+            this.filter_txt.Size = new System.Drawing.Size(151, 32);
+            this.filter_txt.TabIndex = 10;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -733,6 +762,7 @@ namespace DS_proj2_Music_player
             this.merge_pnl.ResumeLayout(false);
             this.merge_pnl.PerformLayout();
             this.playlist_pnl.ResumeLayout(false);
+            this.playlist_pnl.PerformLayout();
             this.liked_song_pnl.ResumeLayout(false);
             this.songs_pnl.ResumeLayout(false);
             this.add_playlist_pnl.ResumeLayout(false);
@@ -788,6 +818,8 @@ namespace DS_proj2_Music_player
     private System.Windows.Forms.CheckedListBox check_play_list_list;
         private System.Windows.Forms.Button set_merge_butt;
         private System.Windows.Forms.CheckBox is_shuffle;
+        private System.Windows.Forms.Button filtter_butt;
+        private System.Windows.Forms.TextBox filter_txt;
     }
 }
 

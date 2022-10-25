@@ -15,7 +15,7 @@ using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 using static TagLib.File;
 using WMPLib;
-
+using System.Runtime.Remoting.Messaging;
 
 namespace DS_proj2_Music_player
 {
@@ -111,7 +111,7 @@ namespace DS_proj2_Music_player
     }
     void ReadCsv()
     {
-      plylist_list.Items.Add("Local Musics"); // to show these musics
+      //plylist_list.Items.Add("Local Musics"); // to show these musics
 
       var csvTable = new DataTable(); // for reading csv
 
@@ -325,7 +325,21 @@ namespace DS_proj2_Music_player
       }
     }
 
-
+    void show_in_play_list()
+    {
+            plylist_list.Items.Clear();
+      Node<PlayList> tmp;
+      tmp = Datas.PList.head;
+      while (tmp != null)
+      {
+        try
+        {
+          plylist_list.Items.Add(tmp.data.Name);
+          tmp = tmp.Next;
+        }
+        catch { break; }
+      }
+    }
 
 
 
@@ -372,6 +386,9 @@ namespace DS_proj2_Music_player
       this.Show();
       b_click(1); // PlayList
 
+      Datas.PList.push_front(LocalMusics);
+
+      show_in_play_list();
     }
 
     #region menu_butts
@@ -391,20 +408,9 @@ namespace DS_proj2_Music_player
 
       //add_play_lists();
 
-      Node<PlayList> tmp;
-      tmp = Datas.PList.head;
-      while (tmp != null)
-      {
-        try
-        {
-          plylist_list.Items.Add(tmp.data.Name);
-          tmp = tmp.Next;
-        }
-        catch { break; }
+      show_in_play_list();
 
-      }
-
-      plylist_list.Items.Add("Local Musics");
+      //plylist_list.Items.Add("Local Musics");
 
 
     }
@@ -480,7 +486,7 @@ namespace DS_proj2_Music_player
         catch { break; }
 
       }
-      check_play_list_list.Items.Add("Local Musics");
+     // check_play_list_list.Items.Add("Local Musics");
 
     }
 
@@ -925,6 +931,39 @@ namespace DS_proj2_Music_player
 
         add_to_song_list();
       }
+    }
+
+    private void filtter_butt_Click(object sender, EventArgs e)
+    {
+      PlayList newPlayList = new PlayList();
+      Node<PlayList> tmpP = Datas.PList.head;
+      while(tmpP != null)
+      {
+        Node<Music> tmpM = tmpP.data.Musics.head;
+        while(tmpM != null)
+        {
+          if(tmpM.data.Genre == filter_txt.Text)
+          {
+            newPlayList.Musics.push_front(tmpM.data);
+          }
+          tmpM = tmpM.Next;
+        }
+        tmpP = tmpP.Next;
+      }
+      if(newPlayList.Musics.getSize() != 0)
+      {
+        newPlayList.Name = "filttered by " + "\"" + filter_txt.Text + "\"";
+        Datas.PList.push_front(newPlayList);
+        show_in_play_list();
+      }
+      else
+      {
+        MessageF msg = new MessageF("Genere not found!", 0);
+        msg.ShowDialog();
+      }
+
+     // plylist_list.Items.Add("Local Musics");
+
     }
 
     private void ply_butt_Click(object sender, EventArgs e)
