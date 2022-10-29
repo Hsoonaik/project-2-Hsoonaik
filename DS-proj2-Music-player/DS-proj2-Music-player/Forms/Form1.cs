@@ -305,24 +305,29 @@ namespace DS_proj2_Music_player
     }
     void remove_repited(ref LinkedList<Music> P)
     {
-      Node<Music> tmp1 = P.head;
-      Node<Music> tmp2 = P.head.Next;
-
-      while (tmp1 != null)
+      try
       {
-        Console.WriteLine(tmp1.data.ArtistName);
-        while (tmp2 != null)
+        Node<Music> tmp1 = P.head;
+        Node<Music> tmp2 = P.head.Next;
+
+        while (tmp1 != null)
         {
-          Console.WriteLine(tmp2.data.ArtistName);
-          if (tmp1.data.TrackName == tmp2.data.TrackName && tmp2.data.TrackName != "!@#$")
+          Console.WriteLine(tmp1.data.ArtistName);
+          while (tmp2 != null)
           {
-            P.remove_by_value(tmp2.data);
-            tmp2.data.TrackName = "!@#$";
+            Console.WriteLine(tmp2.data.ArtistName);
+            if (tmp1.data.TrackName == tmp2.data.TrackName && tmp2.data.TrackName != "!@#$")
+            {
+              P.remove_by_value(tmp2.data);
+              tmp2.data.TrackName = "!@#$";
+            }
+            tmp2 = tmp2.Next;
           }
-          tmp2 = tmp2.Next;
+          tmp1 = tmp1.Next;
         }
-        tmp1 = tmp1.Next;
       }
+      catch { return; }
+     
     }
 
     void show_in_play_list()
@@ -382,7 +387,7 @@ namespace DS_proj2_Music_player
       playlist_pnl.Show();
       SplashForm F = new SplashForm();
       this.Hide();
-      //F.ShowDialog();
+      F.ShowDialog();
       this.Show();
       b_click(1); // PlayList
 
@@ -884,7 +889,7 @@ namespace DS_proj2_Music_player
 
         Result.Musics.merge(item1.Musics, item2.Musics);
         remove_repited(ref Result.Musics);
-        Result.Name = ("New_" + item1.Name + " _" + item2.Name + "_" + Result.GetHashCode()).Substring(0, 25) + "...";
+        Result.Name = ("New_" + item1.Name + " _" + item2.Name + "_" + Result.GetHashCode()) + "...";
         Datas.PList.push_front(Result);
       }
       else if(check_play_list_list.CheckedItems.Count >= 2 && is_shuffle.Checked)
