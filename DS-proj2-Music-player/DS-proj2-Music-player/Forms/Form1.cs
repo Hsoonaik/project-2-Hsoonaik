@@ -23,6 +23,9 @@ namespace DS_proj2_Music_player
 
   public partial class MainForm : Form
   {
+    #region all
+
+    #region global 
     int b = 0, bck_butt_val = -1, music_play_butt = -1; // 0 for playlist
     Datas Datas = new Datas(); // for playlists
     PlayList LocalMusics = new PlayList {Name = "Local Musics"};
@@ -33,10 +36,9 @@ namespace DS_proj2_Music_player
 
     LinkedList<Music> LikedMusics = new LinkedList<Music>();
     LinkedList<Music> AllMusics = new LinkedList<Music>();
+    #endregion
 
-
-
-
+    #region functions
     void b_click(int tmp)
     {
       switch (tmp)
@@ -212,7 +214,6 @@ namespace DS_proj2_Music_player
       }
       return false;
     }
-
     void sort_by_track_name(ref LinkedList<Music> P)
     {
       LinkedList<Music> sorted_linked_list = new LinkedList<Music>();
@@ -234,10 +235,6 @@ namespace DS_proj2_Music_player
 
       P = sorted_linked_list;
     }
-
-
-
-
     void sort_by_artist_name(ref LinkedList<Music> P)
     {
       LinkedList<Music> sorted_linked_list = new LinkedList<Music>();
@@ -260,12 +257,6 @@ namespace DS_proj2_Music_player
       P = sorted_linked_list;
 
     }
-
-
-
-
-
-
     void sort_by_release_date(ref LinkedList<Music> P)
     {
       LinkedList<Music> sorted_linked_list = new LinkedList<Music>();
@@ -328,7 +319,6 @@ namespace DS_proj2_Music_player
       catch { return; }
      
     }
-
     void show_in_play_list()
     {
             plylist_list.Items.Clear();
@@ -344,9 +334,7 @@ namespace DS_proj2_Music_player
         catch { break; }
       }
     }
-
-
-
+    #endregion
 
     #region About Form
     public MainForm()
@@ -369,6 +357,7 @@ namespace DS_proj2_Music_player
 
     private void Form1_Load(object sender, EventArgs e)
     {
+      #region comments
       //List<Music> l = new List<Music>();
       //l.Add(new Music { TrackName = "sadf", ArtistName = "asff" });
       //l.Add(new Music { TrackName = "sadf", ArtistName = "asff" });
@@ -382,6 +371,8 @@ namespace DS_proj2_Music_player
       //String length = Convert.ToInt16(file.Properties.Duration.TotalSeconds).ToString();
 
       //Console.WriteLine(file.Tag.FirstArtist);
+      # endregion
+
 
       playlist_pnl.Show();
       SplashForm F = new SplashForm();
@@ -393,11 +384,6 @@ namespace DS_proj2_Music_player
       Datas.PList.push_front(LocalMusics);
 
       show_in_play_list();
-
-
-
-
-
     }
 
     #region menu_butts
@@ -509,46 +495,6 @@ namespace DS_proj2_Music_player
     }
     #endregion
 
-    private void label1_Click(object sender, EventArgs e) // close
-    {
-      MessageF exit_msg = new MessageF("Are you sure to exit?", 1);
-      this.Select();
-      exit_msg.ShowDialog();
-      if (exit_msg.yes)
-        this.Close();
-
-    }
-
-    private void label2_Click(object sender, EventArgs e) // minimize
-    {
-      if (this.WindowState == FormWindowState.Maximized)
-      {
-        this.WindowState = FormWindowState.Normal;
-        this.StartPosition = FormStartPosition.CenterScreen;
-      }
-      else
-      {
-        this.WindowState = FormWindowState.Maximized;
-
-      }
-      //ply_butt.Location = new Point((panel2.Width - ply_butt.Width) / 2, (panel2.Height - ply_butt.Height) / 2);
-      //nxt_butt.Location = new Point((panel2.Width - nxt_butt.Width) / 2 + ply_butt.Width - 6, (panel2.Height - nxt_butt.Height) / 2);
-      //pre_butt.Location = new Point((panel2.Width - pre_butt.Width) / 2 - ply_butt.Width, (panel2.Height - pre_butt.Height) / 2);
-      PPNButts();
-
-    }
-
-    private void textBox1_TextChanged(object sender, EventArgs e)
-    {
-
-    }
-
-    private void button1_Click(object sender, EventArgs e)
-    {
-      Datas.add_new_play_list(new PlayList { Name = plylst_nme.Text });
-      plylst_nme.Clear();
-      plylst_nme.Select();
-    }
 
     #endregion
 
@@ -601,11 +547,48 @@ namespace DS_proj2_Music_player
 
     #endregion
 
+    #region ui_funcs
+    private void label1_Click(object sender, EventArgs e) // close
+    {
+      MessageF exit_msg = new MessageF("Are you sure to exit?", 1);
+      this.Select();
+      exit_msg.ShowDialog();
+      if (exit_msg.yes)
+        this.Close();
+
+    }
+    private void label2_Click(object sender, EventArgs e) // minimize
+    {
+      if (this.WindowState == FormWindowState.Maximized)
+      {
+        this.WindowState = FormWindowState.Normal;
+        this.StartPosition = FormStartPosition.CenterScreen;
+      }
+      else
+      {
+        this.WindowState = FormWindowState.Maximized;
+
+      }
+      //ply_butt.Location = new Point((panel2.Width - ply_butt.Width) / 2, (panel2.Height - ply_butt.Height) / 2);
+      //nxt_butt.Location = new Point((panel2.Width - nxt_butt.Width) / 2 + ply_butt.Width - 6, (panel2.Height - nxt_butt.Height) / 2);
+      //pre_butt.Location = new Point((panel2.Width - pre_butt.Width) / 2 - ply_butt.Width, (panel2.Height - pre_butt.Height) / 2);
+      PPNButts();
+
+    }
+    private void textBox1_TextChanged(object sender, EventArgs e)
+    {
+
+    }
+    private void button1_Click(object sender, EventArgs e)
+    {
+      Datas.add_new_play_list(new PlayList { Name = plylst_nme.Text });
+      plylst_nme.Clear();
+      plylst_nme.Select();
+    }
     private void plylist_list_DoubleClick(object sender, EventArgs e)
     {
       MessageBox.Show("");
     }
-
     private void back_butt_Click(object sender, EventArgs e)
     {
       music_detail_container.Hide();
@@ -620,12 +603,10 @@ namespace DS_proj2_Music_player
 
       back_butt.Hide();
     }
-
     private void songs_list_SelectedIndexChanged(object sender, EventArgs e)
     {
 
     }
-
     private void songs_list_DoubleClick(object sender, EventArgs e)
     {
       wplayer.controls.stop();
@@ -674,12 +655,10 @@ namespace DS_proj2_Music_player
       }
       music_detail_container.Show();
     }
-
     private void chse_file_butt_Click(object sender, EventArgs e)
     {
 
     }
-
     private void add_msc_butt_Click(object sender, EventArgs e)
     {
       string path = get_added_music_path();
@@ -707,7 +686,6 @@ namespace DS_proj2_Music_player
       add_to_song_list();
       songs_pnl.Show();
     }
-
     private void nxt_butt_Click(object sender, EventArgs e)
     {
       //MessageF msg = new MessageF("Will be available in next versions!", 0);
@@ -738,22 +716,20 @@ namespace DS_proj2_Music_player
 
       music_detail_container.Show();
     }
-
     private void pre_butt_Click(object sender, EventArgs e)
     {
       MessageF msg = new MessageF("Will be available in next versions!", 0);
       msg.Show();
     }
-
     private void like_butt_Click(object sender, EventArgs e)
     {
-   
+
 
       if (!CurrenMusic.isLiked)
       {
         like_butt.Text = "♥";
         CurrenMusic.isLiked = true;
-        if(!search_in_liked_list(CurrenMusic.TrackName))
+        if (!search_in_liked_list(CurrenMusic.TrackName))
           LikedMusics.push_front(CurrenMusic);
       }
       else
@@ -764,15 +740,13 @@ namespace DS_proj2_Music_player
 
       }
     }
-
     private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
     {
 
     }
-
     private void liked_song_list_DoubleClick(object sender, EventArgs e)
     {
-      
+
       wplayer.controls.stop();
       ply_butt.Text = "▶";
 
@@ -814,7 +788,6 @@ namespace DS_proj2_Music_player
       }
       music_detail_container.Show();
     }
-
     private void sort_selection_SelectedIndexChanged(object sender, EventArgs e)
     {
       songs_list.Items.Clear();
@@ -825,7 +798,7 @@ namespace DS_proj2_Music_player
         else
           sort_by_track_name(ref CurrentPlayList.Musics);
       }
-      else if(sort_selection_butt.SelectedIndex == 1)
+      else if (sort_selection_butt.SelectedIndex == 1)
       {
         if (CurrentPlayList.Name == "Local Musics")
           sort_by_artist_name(ref LocalMusics.Musics);
@@ -843,18 +816,15 @@ namespace DS_proj2_Music_player
       add_to_song_list();
 
     }
-
     private void check_play_list_list_DoubleClick(object sender, EventArgs e)
     {
-      
+
 
     }
-
     private void check_play_list_list_SelectedIndexChanged(object sender, EventArgs e)
     {
 
     }
-
     private void button2_Click(object sender, EventArgs e)
     {
       LinkedList<PlayList> CheckedList = new LinkedList<PlayList>();
@@ -897,7 +867,7 @@ namespace DS_proj2_Music_player
         Result.Name = ("New_" + item1.Name + " _" + item2.Name + "_" + Result.GetHashCode()) + "...";
         Datas.PList.push_front(Result);
       }
-      else if(check_play_list_list.CheckedItems.Count >= 2 && is_shuffle.Checked)
+      else if (check_play_list_list.CheckedItems.Count >= 2 && is_shuffle.Checked)
       {
         PlayList Result = new PlayList();
         List<LinkedList<Music>> lll = new List<LinkedList<Music>>();
@@ -915,7 +885,6 @@ namespace DS_proj2_Music_player
         Datas.PList.push_front(Result);
       }
     }
-
     private void delete_music_butt_Click(object sender, EventArgs e)
     {
       if (songs_list.SelectedItem != null)
@@ -942,17 +911,16 @@ namespace DS_proj2_Music_player
         add_to_song_list();
       }
     }
-
     private void filtter_butt_Click(object sender, EventArgs e)
     {
       PlayList newPlayList = new PlayList();
       Node<PlayList> tmpP = Datas.PList.head;
-      while(tmpP != null)
+      while (tmpP != null)
       {
         Node<Music> tmpM = tmpP.data.Musics.head;
-        while(tmpM != null)
+        while (tmpM != null)
         {
-          if(tmpM.data.Genre == filter_txt.Text)
+          if (tmpM.data.Genre == filter_txt.Text)
           {
             newPlayList.Musics.push_front(tmpM.data);
           }
@@ -960,7 +928,7 @@ namespace DS_proj2_Music_player
         }
         tmpP = tmpP.Next;
       }
-      if(newPlayList.Musics.getSize() != 0)
+      if (newPlayList.Musics.getSize() != 0)
       {
         newPlayList.Name = "filttered by " + "\"" + filter_txt.Text + "\"";
         Datas.PList.push_front(newPlayList);
@@ -972,20 +940,18 @@ namespace DS_proj2_Music_player
         msg.ShowDialog();
       }
 
-     // plylist_list.Items.Add("Local Musics");
+      // plylist_list.Items.Add("Local Musics");
 
     }
-
     private void artst_nme_lbl_TextChanged(object sender, EventArgs e)
     {
       if (artst_nme_lbl.Text.Length > 10)
         artst_nme_lbl.Text = artst_nme_lbl.Text.Substring(0, 8) + "...";
     }
-
     private void ply_butt_Click(object sender, EventArgs e)
     {
       Console.WriteLine(CurrenMusic.Path);
-      if(CurrenMusic.Path != "$")
+      if (CurrenMusic.Path != "$")
       {
         wplayer.URL = CurrenMusic.Path;
         if (music_play_butt < 0)
@@ -1003,13 +969,12 @@ namespace DS_proj2_Music_player
       }
 
     }
-
     private void plylist_list_DoubleClick_1(object sender, EventArgs e) // playlist doubble click / Musics show
     {
-      if(plylist_list.SelectedItem == null)
+      if (plylist_list.SelectedItem == null)
         plylist_list.SelectedIndex = 0; // to avoid click without selectiong
 
-      
+
       chse_file_buttkk.Show();
       delete_music_butt.Show();
       sort_selection_butt.Show();
@@ -1028,5 +993,8 @@ namespace DS_proj2_Music_player
 
 
     }
+    #endregion
+
+    #endregion
   }
 }
