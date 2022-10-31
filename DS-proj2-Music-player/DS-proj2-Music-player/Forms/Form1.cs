@@ -19,8 +19,6 @@ using System.Runtime.Remoting.Messaging;
 
 namespace DS_proj2_Music_player
 {
-
-
   public partial class MainForm : Form
   {
     #region all
