@@ -10,7 +10,14 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class Form1 : Form
+
+  class a
+  {
+    int _name;
+    public int name { get { return _name; } set { _name = value; } }
+  }
+
+  public partial class Form1 : Form
     {
         public Form1()
         {
@@ -19,10 +26,9 @@ namespace WindowsFormsApp1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
-      
-      for(int i = 0; i < 10; i++) 
-        listView1.Items.Add(i.ToString());
+      string s = "pjpj";
+      s = s.Replace('p',';');
+      Console.WriteLine(s);
         }
     }
 }

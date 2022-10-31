@@ -37,17 +37,6 @@ namespace DS_proj2_Music_player
 
 
 
-
-
-
-
-
-
-
-
-
-
-
     void b_click(int tmp)
     {
       switch (tmp)
@@ -400,6 +389,7 @@ namespace DS_proj2_Music_player
 
     private void plylst_butt_Click(object sender, EventArgs e)
     {
+      filter_txt.Clear();
       merge_pnl.Hide();
       sort_selection_butt.Hide();
       b_click(1);
@@ -969,6 +959,12 @@ namespace DS_proj2_Music_player
 
      // plylist_list.Items.Add("Local Musics");
 
+    }
+
+    private void artst_nme_lbl_TextChanged(object sender, EventArgs e)
+    {
+      if (artst_nme_lbl.Text.Length > 10)
+        artst_nme_lbl.Text = artst_nme_lbl.Text.Substring(0, 8) + "...";
     }
 
     private void ply_butt_Click(object sender, EventArgs e)

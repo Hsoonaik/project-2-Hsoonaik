@@ -3,9 +3,9 @@ C:\Users\Padidar\Desktop\Private\uni\Coding\Music playlist\project-2-Hsoonaik\Wi
 C:\Users\Padidar\Desktop\Private\uni\Coding\Music playlist\project-2-Hsoonaik\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
 C:\Users\Padidar\Desktop\Private\uni\Coding\Music playlist\project-2-Hsoonaik\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.AssemblyReference.cache
 C:\Users\Padidar\Desktop\Private\uni\Coding\Music playlist\project-2-Hsoonaik\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.SuggestedBindingRedirects.cache
-C:\Users\Padidar\Desktop\Private\uni\Coding\Music playlist\project-2-Hsoonaik\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form1.resources
 C:\Users\Padidar\Desktop\Private\uni\Coding\Music playlist\project-2-Hsoonaik\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
 C:\Users\Padidar\Desktop\Private\uni\Coding\Music playlist\project-2-Hsoonaik\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.cache
 C:\Users\Padidar\Desktop\Private\uni\Coding\Music playlist\project-2-Hsoonaik\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
 C:\Users\Padidar\Desktop\Private\uni\Coding\Music playlist\project-2-Hsoonaik\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
 C:\Users\Padidar\Desktop\Private\uni\Coding\Music playlist\project-2-Hsoonaik\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+C:\Users\Padidar\Desktop\Private\uni\Coding\Music playlist\project-2-Hsoonaik\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.a.resources
