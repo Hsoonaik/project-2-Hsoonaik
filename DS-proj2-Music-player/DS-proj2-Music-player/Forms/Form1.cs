@@ -25,7 +25,7 @@ namespace DS_proj2_Music_player
   {
     int b = 0, bck_butt_val = -1, music_play_butt = -1; // 0 for playlist
     Datas Datas = new Datas(); // for playlists
-    PlayList LocalMusics = new PlayList { Name = "Local Musics" };
+    PlayList LocalMusics = new PlayList {Name = "Local Musics"};
 
     PlayList CurrentPlayList = new PlayList();
     Music CurrenMusic = new Music();
@@ -234,6 +234,10 @@ namespace DS_proj2_Music_player
 
       P = sorted_linked_list;
     }
+
+
+
+
     void sort_by_artist_name(ref LinkedList<Music> P)
     {
       LinkedList<Music> sorted_linked_list = new LinkedList<Music>();
@@ -256,6 +260,12 @@ namespace DS_proj2_Music_player
       P = sorted_linked_list;
 
     }
+
+
+
+
+
+
     void sort_by_release_date(ref LinkedList<Music> P)
     {
       LinkedList<Music> sorted_linked_list = new LinkedList<Music>();
@@ -383,6 +393,11 @@ namespace DS_proj2_Music_player
       Datas.PList.push_front(LocalMusics);
 
       show_in_play_list();
+
+
+
+
+
     }
 
     #region menu_butts

@@ -43,7 +43,7 @@ namespace DS_proj2_Music_player
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(76)))), ((int)(((byte)(41)))));
+            this.panel1.BackColor = System.Drawing.Color.Cyan;
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -82,7 +82,8 @@ namespace DS_proj2_Music_player
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(171)))), ((int)(((byte)(171)))));
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.White;
+            this.tableLayoutPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -181,12 +182,12 @@ namespace DS_proj2_Music_player
             // 
             this.YesBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.YesBtn.AutoSize = true;
-            this.YesBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(76)))), ((int)(((byte)(41)))));
+            this.YesBtn.BackColor = System.Drawing.Color.Cyan;
             this.YesBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.YesBtn.FlatAppearance.BorderSize = 0;
             this.YesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.YesBtn.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.YesBtn.ForeColor = System.Drawing.Color.White;
+            this.YesBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(32)))), ((int)(((byte)(50)))));
             this.YesBtn.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.YesBtn.Location = new System.Drawing.Point(95, 12);
             this.YesBtn.Name = "YesBtn";
@@ -200,12 +201,12 @@ namespace DS_proj2_Music_player
             // NoBtn
             // 
             this.NoBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.NoBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(76)))), ((int)(((byte)(41)))));
+            this.NoBtn.BackColor = System.Drawing.Color.Cyan;
             this.NoBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.NoBtn.FlatAppearance.BorderSize = 0;
             this.NoBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.NoBtn.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NoBtn.ForeColor = System.Drawing.Color.White;
+            this.NoBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(32)))), ((int)(((byte)(50)))));
             this.NoBtn.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.NoBtn.Location = new System.Drawing.Point(265, 12);
             this.NoBtn.Name = "NoBtn";
@@ -220,13 +221,13 @@ namespace DS_proj2_Music_player
             // 
             this.OkBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.OkBtn.AutoSize = true;
-            this.OkBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(76)))), ((int)(((byte)(41)))));
+            this.OkBtn.BackColor = System.Drawing.Color.Cyan;
             this.OkBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.OkBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.OkBtn.FlatAppearance.BorderSize = 0;
             this.OkBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.OkBtn.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.OkBtn.ForeColor = System.Drawing.Color.White;
+            this.OkBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(32)))), ((int)(((byte)(50)))));
             this.OkBtn.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.OkBtn.Location = new System.Drawing.Point(180, 12);
             this.OkBtn.Name = "OkBtn";

@@ -92,7 +92,7 @@ namespace DS_proj2_Music_player
             // panel3
             // 
             this.panel3.AutoScroll = true;
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(76)))), ((int)(((byte)(41)))));
+            this.panel3.BackColor = System.Drawing.Color.Cyan;
             this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.panel3.Controls.Add(this.pictureBox1);
             this.panel3.Cursor = System.Windows.Forms.Cursors.Help;
@@ -104,6 +104,7 @@ namespace DS_proj2_Music_player
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Cyan;
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox1.Location = new System.Drawing.Point(0, 4);
@@ -178,7 +179,7 @@ namespace DS_proj2_Music_player
             // 
             // b1
             // 
-            this.b1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(76)))), ((int)(((byte)(41)))));
+            this.b1.BackColor = System.Drawing.Color.Cyan;
             this.b1.Location = new System.Drawing.Point(0, 132);
             this.b1.Name = "b1";
             this.b1.Size = new System.Drawing.Size(10, 113);
@@ -187,7 +188,7 @@ namespace DS_proj2_Music_player
             // 
             // b2
             // 
-            this.b2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(76)))), ((int)(((byte)(41)))));
+            this.b2.BackColor = System.Drawing.Color.Cyan;
             this.b2.Location = new System.Drawing.Point(0, 251);
             this.b2.Name = "b2";
             this.b2.Size = new System.Drawing.Size(10, 113);
@@ -196,7 +197,7 @@ namespace DS_proj2_Music_player
             // 
             // b3
             // 
-            this.b3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(76)))), ((int)(((byte)(41)))));
+            this.b3.BackColor = System.Drawing.Color.Cyan;
             this.b3.Location = new System.Drawing.Point(0, 381);
             this.b3.Name = "b3";
             this.b3.Size = new System.Drawing.Size(10, 113);
@@ -226,7 +227,7 @@ namespace DS_proj2_Music_player
             // 
             // b4
             // 
-            this.b4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(76)))), ((int)(((byte)(41)))));
+            this.b4.BackColor = System.Drawing.Color.Cyan;
             this.b4.Location = new System.Drawing.Point(0, 476);
             this.b4.Name = "b4";
             this.b4.Size = new System.Drawing.Size(10, 113);
@@ -405,14 +406,14 @@ namespace DS_proj2_Music_player
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.playlist_pnl);
-            this.panel4.Controls.Add(this.add_playlist_pnl);
             this.panel4.Controls.Add(this.merge_pnl);
-            this.panel4.Controls.Add(this.sort_selection_butt);
             this.panel4.Controls.Add(this.liked_song_pnl);
+            this.panel4.Controls.Add(this.add_playlist_pnl);
+            this.panel4.Controls.Add(this.songs_pnl);
+            this.panel4.Controls.Add(this.playlist_pnl);
+            this.panel4.Controls.Add(this.sort_selection_butt);
             this.panel4.Controls.Add(this.title_lbl);
             this.panel4.Controls.Add(this.back_butt);
-            this.panel4.Controls.Add(this.songs_pnl);
             this.panel4.Controls.Add(this.label2);
             this.panel4.Controls.Add(this.label1);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -445,12 +446,12 @@ namespace DS_proj2_Music_player
             // 
             // filtter_butt
             // 
-            this.filtter_butt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(76)))), ((int)(((byte)(41)))));
+            this.filtter_butt.BackColor = System.Drawing.Color.Cyan;
             this.filtter_butt.Cursor = System.Windows.Forms.Cursors.Hand;
             this.filtter_butt.FlatAppearance.BorderSize = 0;
             this.filtter_butt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.filtter_butt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.filtter_butt.ForeColor = System.Drawing.Color.White;
+            this.filtter_butt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(32)))), ((int)(((byte)(50)))));
             this.filtter_butt.Location = new System.Drawing.Point(372, 257);
             this.filtter_butt.Name = "filtter_butt";
             this.filtter_butt.Size = new System.Drawing.Size(150, 38);
@@ -465,7 +466,7 @@ namespace DS_proj2_Music_player
             this.plylist_list.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.plylist_list.Cursor = System.Windows.Forms.Cursors.Hand;
             this.plylist_list.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.plylist_list.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(76)))), ((int)(((byte)(41)))));
+            this.plylist_list.ForeColor = System.Drawing.Color.Cyan;
             this.plylist_list.FormattingEnabled = true;
             this.plylist_list.ItemHeight = 49;
             this.plylist_list.Location = new System.Drawing.Point(0, 0);
@@ -497,11 +498,12 @@ namespace DS_proj2_Music_player
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(76)))), ((int)(((byte)(41)))));
+            this.button1.BackColor = System.Drawing.Color.Cyan;
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Calibri", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(32)))), ((int)(((byte)(50)))));
             this.button1.Location = new System.Drawing.Point(145, 188);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(260, 50);
@@ -528,7 +530,7 @@ namespace DS_proj2_Music_player
             this.is_shuffle.AutoSize = true;
             this.is_shuffle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.is_shuffle.Font = new System.Drawing.Font("Calibri Light", 20F);
-            this.is_shuffle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(76)))), ((int)(((byte)(41)))));
+            this.is_shuffle.ForeColor = System.Drawing.Color.Cyan;
             this.is_shuffle.Location = new System.Drawing.Point(165, 290);
             this.is_shuffle.Name = "is_shuffle";
             this.is_shuffle.Size = new System.Drawing.Size(135, 45);
@@ -538,12 +540,12 @@ namespace DS_proj2_Music_player
             // 
             // set_merge_butt
             // 
-            this.set_merge_butt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(76)))), ((int)(((byte)(41)))));
+            this.set_merge_butt.BackColor = System.Drawing.Color.Cyan;
             this.set_merge_butt.Cursor = System.Windows.Forms.Cursors.Hand;
             this.set_merge_butt.FlatAppearance.BorderSize = 0;
             this.set_merge_butt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.set_merge_butt.Font = new System.Drawing.Font("Calibri", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.set_merge_butt.ForeColor = System.Drawing.Color.White;
+            this.set_merge_butt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(32)))), ((int)(((byte)(50)))));
             this.set_merge_butt.Location = new System.Drawing.Point(0, 290);
             this.set_merge_butt.Name = "set_merge_butt";
             this.set_merge_butt.Size = new System.Drawing.Size(155, 45);
@@ -557,7 +559,7 @@ namespace DS_proj2_Music_player
             // 
             this.check_play_list_list.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(32)))), ((int)(((byte)(50)))));
             this.check_play_list_list.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.check_play_list_list.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(76)))), ((int)(((byte)(41)))));
+            this.check_play_list_list.ForeColor = System.Drawing.Color.Cyan;
             this.check_play_list_list.FormattingEnabled = true;
             this.check_play_list_list.Location = new System.Drawing.Point(0, 0);
             this.check_play_list_list.Name = "check_play_list_list";
@@ -568,11 +570,11 @@ namespace DS_proj2_Music_player
             // 
             // sort_selection_butt
             // 
-            this.sort_selection_butt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(76)))), ((int)(((byte)(41)))));
+            this.sort_selection_butt.BackColor = System.Drawing.Color.Cyan;
             this.sort_selection_butt.Cursor = System.Windows.Forms.Cursors.Hand;
             this.sort_selection_butt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.sort_selection_butt.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.sort_selection_butt.ForeColor = System.Drawing.Color.White;
+            this.sort_selection_butt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(32)))), ((int)(((byte)(50)))));
             this.sort_selection_butt.FormattingEnabled = true;
             this.sort_selection_butt.Items.AddRange(new object[] {
             "Track Name",
@@ -603,7 +605,7 @@ namespace DS_proj2_Music_player
             this.liked_song_list.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.liked_song_list.Cursor = System.Windows.Forms.Cursors.Hand;
             this.liked_song_list.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.liked_song_list.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(76)))), ((int)(((byte)(41)))));
+            this.liked_song_list.ForeColor = System.Drawing.Color.Cyan;
             this.liked_song_list.FormattingEnabled = true;
             this.liked_song_list.ItemHeight = 49;
             this.liked_song_list.Location = new System.Drawing.Point(3, 0);
@@ -657,7 +659,7 @@ namespace DS_proj2_Music_player
             this.songs_list.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.songs_list.Cursor = System.Windows.Forms.Cursors.Hand;
             this.songs_list.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.songs_list.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(76)))), ((int)(((byte)(41)))));
+            this.songs_list.ForeColor = System.Drawing.Color.Cyan;
             this.songs_list.FormattingEnabled = true;
             this.songs_list.ItemHeight = 49;
             this.songs_list.Location = new System.Drawing.Point(0, 0);
@@ -670,12 +672,12 @@ namespace DS_proj2_Music_player
             // 
             // delete_music_butt
             // 
-            this.delete_music_butt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(76)))), ((int)(((byte)(41)))));
+            this.delete_music_butt.BackColor = System.Drawing.Color.Cyan;
             this.delete_music_butt.Cursor = System.Windows.Forms.Cursors.Hand;
             this.delete_music_butt.FlatAppearance.BorderSize = 0;
             this.delete_music_butt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.delete_music_butt.Font = new System.Drawing.Font("Calibri", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.delete_music_butt.ForeColor = System.Drawing.Color.White;
+            this.delete_music_butt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(32)))), ((int)(((byte)(50)))));
             this.delete_music_butt.Location = new System.Drawing.Point(163, 297);
             this.delete_music_butt.Name = "delete_music_butt";
             this.delete_music_butt.Size = new System.Drawing.Size(155, 39);
@@ -687,12 +689,12 @@ namespace DS_proj2_Music_player
             // 
             // chse_file_buttkk
             // 
-            this.chse_file_buttkk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(76)))), ((int)(((byte)(41)))));
+            this.chse_file_buttkk.BackColor = System.Drawing.Color.Cyan;
             this.chse_file_buttkk.Cursor = System.Windows.Forms.Cursors.Hand;
             this.chse_file_buttkk.FlatAppearance.BorderSize = 0;
             this.chse_file_buttkk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.chse_file_buttkk.Font = new System.Drawing.Font("Calibri", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.chse_file_buttkk.ForeColor = System.Drawing.Color.White;
+            this.chse_file_buttkk.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(32)))), ((int)(((byte)(50)))));
             this.chse_file_buttkk.Location = new System.Drawing.Point(-2, 297);
             this.chse_file_buttkk.Name = "chse_file_buttkk";
             this.chse_file_buttkk.Size = new System.Drawing.Size(155, 39);
